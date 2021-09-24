@@ -23,6 +23,7 @@ body{
     transform: translate(-50%,-50%);
 
     padding:10px 5px;
+    padding-bottom: 10px;
 }
 
 header {
@@ -45,21 +46,42 @@ header {
     font-size: 1.3rem;
     margin: 0px 5px;
     text-transform: capitalize;
-    color:#f7fff7;
+    color:#280938;
+    box-shadow: #64835e 4px 8px 12px;
 }
 
 main {
     display: flex;
-    height: 100%;
+    height: calc(100% - 30px);
 }
 
 .card {
     flex: 1 1 0;
-    display: flex;
-    justify-content:center;
-    justify-content: space-evenly;
+    display: block;
+    box-shadow: #38835e 4px 8px 12px;
+    margin:15px;
+    padding:10px;
+    border-radius: 5px;
 }
 
 main li {
     list-style-type: none;
+}
+
+main #elevlista {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .card .sheesh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#grupper {
+    display: none;
 }
