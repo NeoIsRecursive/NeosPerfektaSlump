@@ -50,18 +50,33 @@ header {
     box-shadow: #64835e 4px 8px 12px;
 }
 
+.button:hover:not(:first-child) {
+    transform: scale(99%);
+    transition: ease 0.4s;
+    background-color:#df4dec;
+    box-shadow: #64835e 4px 6px 10px;
+}
+
 main {
     display: flex;
+    flex-direction: row;
+    width: calc(100%-30px);
     height: calc(100% - 30px);
 }
 
 .card {
     flex: 1 1 0;
-    display: block;
     box-shadow: #38835e 4px 8px 12px;
     margin:15px;
     padding:10px;
     border-radius: 5px;
+    display: flex;
+}
+
+main .card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main li {
@@ -75,13 +90,31 @@ main #elevlista {
     flex-direction: column;
 }
 
-main .card .sheesh {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 #grupper {
     display: none;
+}
+
+#grupper #groups{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#grupper #groups .grupp {
+    /* flex: 1 1 0; */
+    height: 100%;
+    box-shadow: #38835e 4px 8px 12px;
+    margin:5px;
+    padding:10px;
+    border-radius: 4px;
+    text-transform: capitalize;
+}
+
+#grupper #groups .grupp:hover {
+    transform: scale(110%);
+    box-shadow: #38835e 5px 10px 16px;
+    background-color: #17b890;
+    border: black 1px solid;
+    z-index: 200;
+    transition:ease-in-out 0.3s;
 }

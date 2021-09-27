@@ -3,11 +3,13 @@
         var x = document.getElementById('container');
         var y = document.getElementById('grupper');
         if (x.style.display === 'none') {
-            x.style.display = 'grid';
+            x.style.display = 'flex';
             y.style.display = 'none';
+			document.getElementById('showbtn').innerHTML = "Grupper";
         } else {
             x.style.display = 'none';
             y.style.display = 'block';
+			document.getElementById('showbtn').innerHTML = "Fråga";
         }
     }
 	
