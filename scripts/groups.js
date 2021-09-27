@@ -15,8 +15,11 @@
 	
 	
 	//skapar grupperna
-	function skapaGrupper(x) {
-	    if (x <= 0){
+	function skapaGrupper(x = -1) {
+		if (x = -1){
+			alert("try importing a file!");
+			return;
+		} else if (x <= 0){
 	        alert('Do you really need 0 groups?');
 	        return;
 	    } else if (x == elever.length){
@@ -24,8 +27,8 @@
 	        return;
 	    } else if (x > elever.length){
 	        alert("try fewer groups");
-	        return;
-	    }
+	        return; 
+		}
         var groups = [];
 		var notTaken = [...elever];
 		var antal = Math.floor(elever.length / x);
