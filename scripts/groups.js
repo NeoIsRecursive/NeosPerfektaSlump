@@ -85,3 +85,9 @@
 		 test(document.getElementById('download'),groupFile,count);
     }
     
+
+	function copyGroups(){
+		var groups = document.getElementById('groups');
+		console.log(groups.innerText);
+		navigator.clipboard.writeText(groups.innerText);
+	}
