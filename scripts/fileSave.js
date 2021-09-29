@@ -4,5 +4,5 @@
         let y = document.getElementById('file').files[0].name.split(".")[0];
         let blob = new Blob([groups.join("\n")], {type:'text/html'});
         x.setAttribute("href",URL.createObjectURL(blob));
-        x.setAttribute("download",count +" grupper i "+y+".txt");
+        x.setAttribute("download",count +" grupper_i_"+y+".txt");
     }

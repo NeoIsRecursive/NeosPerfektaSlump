@@ -2,13 +2,16 @@
 	var elever;
 	var intetagna;
 	function slump(){
-		document.getElementById('svara').innerHTML = intetagna.splice(Math.floor(Math.random()*intetagna.length),1);
-		if (intetagna.length <= 0) intetagna = [...elever];
-	    drawList();
+		var number = Math.floor(Math.random()*intetagna.length);
+		document.getElementById('svara').innerHTML = intetagna[number][0];
+	    updateList([intetagna[number][1]],"black");
+		intetagna.splice(number,1);
+		if (intetagna.length <= 0) {intetagna = [...elever];resetList()}
 	}
     
     //visualisering av elev listorna
 	function changeList(x){
+		console.log(x);
 		elever = x;
 		if (elever[elever.length-1][0] == ""){elever.splice(elever.length-1);}
 		intetagna = [...elever];
@@ -16,15 +19,20 @@
 		document.getElementById('svara').innerHTML = "REDO!";
 		drawList();
 	}
+	//visualises the already taken values, and reset simply resets the style to none.
+	function updateList(idNumber, color){
+		document.getElementById(idNumber).style = "background-color:"+color;
+	}
+	function resetList(){
+		for (i = 0; i < elever.length;i++){
+			updateList(i,"none");
+		}
+	}
 	
 	function drawList(){
 		document.getElementById('elever').innerHTML = "";
 		elever.forEach(elev => {
-			if (intetagna.includes(elev)) {
-				document.getElementById('elever').innerHTML += "<li>"+elev+"</li>";
-			} else {
-				document.getElementById('elever').innerHTML += "<li style='text-decoration: line-through;background-color: black;'>"+elev+"</li>";
-			}
+			document.getElementById('elever').innerHTML += "<li id=" +elev[1] +">"+elev[0]+"</li>";
 		});
 	}
 
@@ -48,6 +56,11 @@
 
 		csvReader.onloadend = () => {
 			var temp = csvReader.result.split("\n");
+			var i = 0;
+			temp.forEach(elev => {
+				temp[i] = [elev, i];
+				console.log(temp[i++]);
+			});
 			/*
 			temp.forEach( x => {
 				if (x == temp[0] && cols == null){
@@ -58,7 +71,7 @@
 				}
 			});
 			*/
-			if (temp[temp.length-1] == ""){
+			if (temp[temp.length-1][0] == ""){
 			    temp.pop();
 			}
 			console.log("read and parse done!");

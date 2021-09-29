@@ -15,11 +15,8 @@
 	
 	
 	//skapar grupperna
-	function skapaGrupper(x = -1) {
-		if (x = -1){
-			alert("try importing a file!");
-			return;
-		} else if (x <= 0){
+	function skapaGrupper(x) {
+		if (x <= 0){
 	        alert('Do you really need 0 groups?');
 	        return;
 	    } else if (x == elever.length){
@@ -42,7 +39,9 @@
 
 		for (i = 0; i < x; i++) {
 			for (var y = 0; y < groups[i].length;y++){
-				groups[i][y] = (notTaken.splice(Math.floor(Math.random()*notTaken.length),1)[0]);
+				raNum = Math.floor(Math.random()*notTaken.length);
+				groups[i][y] = (notTaken[raNum][0]);
+				notTaken.splice(raNum,1)[0];
 			}
 		}
 		
