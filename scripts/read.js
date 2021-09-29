@@ -1,21 +1,36 @@
 	//slump delen av programmet
-	var elever;
-	var intetagna;
-	function slump(){
-		var number = Math.floor(Math.random()*intetagna.length);
-		document.getElementById('svara').innerHTML = intetagna[number][0];
-	    updateList([intetagna[number][1]],"black");
-		intetagna.splice(number,1);
-		if (intetagna.length <= 0) {intetagna = [...elever];resetList()}
+	var students = [];
+	var notTaken = [];
+
+	function randFloor(len){
+		return Math.floor(Math.random()*len);
 	}
+
+	function slump(){
+		var number = randFloor(notTaken.length);
+		document.getElementById('svara').innerHTML = notTaken[number][0];
+	    updateList([notTaken[number][1]],"black");
+		notTaken.splice(number,1);
+		if (notTaken.length <= 0) {notTaken = [...students]; resetList()}
+	}
+
     
-    //visualisering av elev listorna
+	function addFromInput(){
+		var name = document.getElementById('addName').value;
+		if (name == "") {alert("you must type in a name"); return;}
+		var index = students.length;
+		notTaken.push([name,index]);
+		students.push([name, index]);
+		drawStudentInList(name,index);
+		document.getElementById('addName').value = "";
+	}
+
+    //visualisering av student listorna
 	function changeList(x){
-		console.log(x);
-		elever = x;
-		if (elever[elever.length-1][0] == ""){elever.splice(elever.length-1);}
-		intetagna = [...elever];
-		document.getElementById('elever').innerHTML = "";
+		students = x;
+		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
+		notTaken = [...students];
+		document.getElementById('students').innerHTML = "";
 		document.getElementById('svara').innerHTML = "REDO!";
 		drawList();
 	}
@@ -24,15 +39,19 @@
 		document.getElementById(idNumber).style = "background-color:"+color;
 	}
 	function resetList(){
-		for (i = 0; i < elever.length;i++){
+		for (i = 0; i < students.length;i++){
 			updateList(i,"none");
 		}
 	}
 	
+	function drawStudentInList(name, idNum){
+		document.getElementById('students').innerHTML += "<li id=" + idNum +">"+name+"</li>";
+	}
+
 	function drawList(){
-		document.getElementById('elever').innerHTML = "";
-		elever.forEach(elev => {
-			document.getElementById('elever').innerHTML += "<li id=" +elev[1] +">"+elev[0]+"</li>";
+		document.getElementById('students').innerHTML = "";
+		students.forEach(student => {
+			drawStudentInList(student[0],student[1]);
 		});
 	}
 
@@ -57,9 +76,9 @@
 		csvReader.onloadend = () => {
 			var temp = csvReader.result.split("\n");
 			var i = 0;
-			temp.forEach(elev => {
-				temp[i] = [elev, i];
-				console.log(temp[i++]);
+			temp.forEach(student => {
+				temp[i] = [student, i];
+				i++
 			});
 			/*
 			temp.forEach( x => {

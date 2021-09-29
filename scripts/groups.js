@@ -1,34 +1,34 @@
-	//vet inte rikitgt varför den ligger här, men växlar mellan grupper och slump av elever
+	//vet inte rikitgt varför den ligger här, men växlar mellan grupper och slump av students
 	function show() {
         var x = document.getElementById('container');
         var y = document.getElementById('grupper');
         if (x.style.display === 'none') {
             x.style.display = 'flex';
             y.style.display = 'none';
-			document.getElementById('showbtn').innerHTML = "Grupper";
+			document.getElementById('showbtn').innerHTML = "Groups";
         } else {
             x.style.display = 'none';
             y.style.display = 'block';
-			document.getElementById('showbtn').innerHTML = "Fråga";
+			document.getElementById('showbtn').innerHTML = "Questions";
         }
     }
 	
 	
 	//skapar grupperna
-	function skapaGrupper(x) {
+	function createGroups(x) {
 		if (x <= 0){
 	        alert('Do you really need 0 groups?');
 	        return;
-	    } else if (x == elever.length){
+	    } else if (x == students.length){
 	        alert("there is literally no point bro");
 	        return;
-	    } else if (x > elever.length){
+	    } else if (x > students.length){
 	        alert("try fewer groups");
 	        return; 
 		}
         var groups = [];
-		var notTaken = [...elever];
-		var antal = Math.floor(elever.length / x);
+		var noGroup = [...students];
+		var antal = Math.floor(students.length / x);
 		var iGrupp = 0;
 		
 		for(var i = 0; i < x; i++){
@@ -39,18 +39,20 @@
 
 		for (i = 0; i < x; i++) {
 			for (var y = 0; y < groups[i].length;y++){
-				raNum = Math.floor(Math.random()*notTaken.length);
-				groups[i][y] = (notTaken[raNum][0]);
-				notTaken.splice(raNum,1)[0];
+				raNum = randFloor(noGroup.length);
+				groups[i][y] = (noGroup[raNum][0]);
+				noGroup.splice(raNum,1);
 			}
 		}
 		
-		if (notTaken.length > 0){
-		    let kvar = notTaken.length;
-		    while(notTaken.length > 0){
-		        for (i = 0; i < kvar; i++) {
-				        groups[i].push(notTaken.splice(Math.floor(Math.random()*notTaken.length),1)[0]);
-		        }
+		if (noGroup.length > 0){
+		    let kvar = noGroup.length;
+		    while(noGroup.length > 0){
+				for (i = 0; i < kvar; i++) {
+					raNum = randFloor(noGroup.length)
+					groups[i].push(noGroup[raNum][0]);
+					noGroup.splice(raNum,1)
+				}
 		    }
 		}
         drawGroups(groups);
@@ -72,19 +74,19 @@
 		    groupText.appendChild(n);
 		    groupText.setAttribute('class','grupp');
 		    groupFile.push("grupp " +count);
-		    group.forEach(elev => {
+		    group.forEach(student => {
 		        nm = document.createElement('tr');
 		        n = document.createElement('td');
-		        elv = document.createTextNode(elev);
+		        elv = document.createTextNode(student);
 		        n.appendChild(elv);
 		        nm.appendChild(n)
 		        groupText.appendChild(nm);
-		        groupFile.push(elev);
+		        groupFile.push(student);
 		    });
 		    groupFile.push("");
 		    content.appendChild(groupText);
 		});
-		 test(document.getElementById('download'),groupFile,count);
+		 downloadGroup(document.getElementById('download'),groupFile,count);
     }
     
 

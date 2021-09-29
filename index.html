@@ -11,26 +11,27 @@
 	<header>
 		<h1 class="button">Neos perfekta slump</h1>
 			<input style="display:none;" type="file" id="file" name="file" onchange="readCsv(this)">
-			<label for="file" class="slumpcont button" id="file2">Välj csv fil</label>
-			<button onclick="show()" id="showbtn" class="button">grupper</button>
+			<label for="file" class="slumpcont button" id="file2">choose CSV file!</label>
+			<button onclick="show()" id="showbtn" class="button">Groups</button>
 	</header>
+	<input type="text" value="" placeholder="name" id="addName">
 	
 	<main class="cont" id="container">
 		<div id="slumpKnapp" class="card">
-			<button onclick="slump()">slumpa</button>
-			<p id="svara">Inga elever än</p>
+			<button onclick="slump()">Give question</button>
+			<p id="svara">No students yet</p>
 		</div>
 		<div id="elevlista" class="card">	
-			<ul id="elever"><li>Alla elever i listan kommer stå här :D</li></ul>
+			<ul id="students"><li>The list of your students names will end up here! :D</li></ul>
 		</div>
 
 	</main>
 
 	<div id = "grupper" class="card">
-	    <input id="antal" placeholder="antal grupper" type="number">
-	    <button onclick="skapaGrupper(document.getElementById('antal').value)">skapa grupper</button>
+	    <input id="amount" placeholder="number of groups" type="number">
+	    <button onclick="createGroups(document.getElementById('amount').value)">create groups</button>
 		<button onclick="copyGroups()">copy</button>
-	    <a id="download">ladda ner</a>
+	    <a id="download">download</a>
 	    <div id="groups"></div>
 	</div>
 
