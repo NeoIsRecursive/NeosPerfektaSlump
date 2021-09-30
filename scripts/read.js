@@ -8,6 +8,22 @@
 		document.getElementById('addName').value = "";
 	}
 
+	document.getElementById('addName').addEventListener("keyup", x => {
+		if(x.key == 'Enter') addFromInput();
+	});
+
+	function changeInput(){
+			var x = document.getElementById('file2');
+			var y = document.getElementById('addName');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+				y.style.display = 'none';
+			} else {
+				x.style.display = 'none';
+				y.style.display = 'block';
+			}
+	}
+
 	function changeList(x){
 		students = x;
 		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
