@@ -17,7 +17,17 @@
 		drawList();
 	}
     
-    //läsning av filer
+	//kollar om filnamnet slutar på .csv, den läser alla sorters filer men en del format fungerar sådärr, så csv är bra för det följer regler
+	function check(file){
+		var hej = file.split(".");
+		if (hej[hej.length-1] != "csv"){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	//läsning av filer
 	function readCsv(file, cols = null) {
 		
 		let isCsv = check(file.files[0].name);
@@ -59,12 +69,3 @@
 		}
 	}
     
-	//kollar om filnamnet slutar på .csv, den läser alla sorters filer men en del format fungerar sådärr, så csv är bra för det följer regler
-	function check(file){
-		var hej = file.split(".");
-		if (hej[hej.length-1] != "csv"){
-			return false;
-		} else {
-			return true;
-		}
-	}
