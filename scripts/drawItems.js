@@ -1,12 +1,4 @@
-    //visualisering av student listorna
-	function changeList(x){
-		students = x;
-		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
-		notTaken = [...students];
-		document.getElementById('students').innerHTML = "";
-		document.getElementById('svara').innerHTML = "REDO!";
-		drawList();
-	}
+	//loops through, is only set when a file is loaded
 	function drawList(){
 		document.getElementById('students').innerHTML = "";
 		students.forEach(student => {
@@ -14,7 +6,7 @@
 		});
 	}
 
-	//visualises the already taken values, and reset simply resets the style to none.
+	//Gives a background color to the id of taken student, used for both setting and removing
 	function updateList(idNumber, color){
 		document.getElementById(idNumber).style = "background-color:"+color;
 	}
