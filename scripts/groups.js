@@ -58,37 +58,6 @@
         drawGroups(groups);
 	}
     
-    //skapar html tables där varje grupp är ett table, tables gjorde det bättre att kopiera texten innan jag hade fixat ladda ner funktionen, dock mycket kod.
-    function drawGroups(groups){
-        let count = 0;
-        let content = document.getElementById('groups');
-        content.innerHTML = "";
-        let groupFile = [];
-		groups.forEach(group => {
-		    var groupText = document.createElement('table');
-		    n = document.createElement('tr');
-		    nm = document.createElement('th');
-		    ye = document.createTextNode("grupp"+ ++count);
-		    nm.appendChild(ye);
-		    n.appendChild(nm);
-		    groupText.appendChild(n);
-		    groupText.setAttribute('class','grupp');
-		    groupFile.push("grupp " +count);
-		    group.forEach(student => {
-		        nm = document.createElement('tr');
-		        n = document.createElement('td');
-		        elv = document.createTextNode(student);
-		        n.appendChild(elv);
-		        nm.appendChild(n)
-		        groupText.appendChild(nm);
-		        groupFile.push(student);
-		    });
-		    groupFile.push("");
-		    content.appendChild(groupText);
-		});
-		 downloadGroup(document.getElementById('download'),groupFile,count);
-    }
-    
 
 	function copyGroups(){
 		var groups = document.getElementById('groups');

@@ -1,21 +1,4 @@
-	//slump delen av programmet
-	var students = [];
-	var notTaken = [];
-
-	function randFloor(len){
-		return Math.floor(Math.random()*len);
-	}
-
-	function slump(){
-		var number = randFloor(notTaken.length);
-		document.getElementById('svara').innerHTML = notTaken[number][0];
-	    updateList([notTaken[number][1]],"black");
-		notTaken.splice(number,1);
-		if (notTaken.length <= 0) {notTaken = [...students]; resetList()}
-	}
-
-    
-	function addFromInput(){
+ 	function addFromInput(){
 		var name = document.getElementById('addName').value;
 		if (name == "") {alert("you must type in a name"); return;}
 		var index = students.length;
@@ -25,7 +8,6 @@
 		document.getElementById('addName').value = "";
 	}
 
-    //visualisering av student listorna
 	function changeList(x){
 		students = x;
 		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
@@ -34,27 +16,6 @@
 		document.getElementById('svara').innerHTML = "REDO!";
 		drawList();
 	}
-	//visualises the already taken values, and reset simply resets the style to none.
-	function updateList(idNumber, color){
-		document.getElementById(idNumber).style = "background-color:"+color;
-	}
-	function resetList(){
-		for (i = 0; i < students.length;i++){
-			updateList(i,"none");
-		}
-	}
-	
-	function drawStudentInList(name, idNum){
-		document.getElementById('students').innerHTML += "<li id=" + idNum +">"+name+"</li>";
-	}
-
-	function drawList(){
-		document.getElementById('students').innerHTML = "";
-		students.forEach(student => {
-			drawStudentInList(student[0],student[1]);
-		});
-	}
-
     
     //läsning av filer
 	function readCsv(file, cols = null) {
