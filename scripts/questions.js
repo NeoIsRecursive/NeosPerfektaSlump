@@ -7,9 +7,13 @@
 	}
 
 	function slump(){
+		if(students[0] == undefined) return alert("no students");
 		var number = randFloor(notTaken.length);
 		document.getElementById('svara').innerHTML = notTaken[number][0];
 	    updateList([notTaken[number][1]],"black");
 		notTaken.splice(number,1);
-		if (notTaken.length <= 0) {notTaken = [...students]; resetList()}
+		if (notTaken.length <= 0) {
+			notTaken = [...students]; 
+			resetList()
+		}
 	}
