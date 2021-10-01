@@ -59,8 +59,10 @@
 	}
     
 
-	function copyGroups(){
-		var groups = document.getElementById('groups');
+	function copyGroups(groups = document.getElementById('groups')){
 		console.log(groups.innerText);
 		navigator.clipboard.writeText(groups.innerText);
+		if (groups.id == "groups") {console.log("copied all") }else {
+			console.log("copied "+groups.id)
+		};
 	}

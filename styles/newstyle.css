@@ -147,12 +147,19 @@ main #elevlista {
     text-transform: capitalize;
 }
 
-#grupper #groups .grupp:hover {
-    transform: scale(110%);
-    box-shadow: rgba(0,0,0,0.25) 5px 10px 16px;
-    background-color: #722631;
-    color: #FDFCF5;
-    border: black 1px solid;
+#grupper #groups .grupp th {
+    display: flex;
+    align-items: center;
+}
+
+#grupper #groups .grupp img{
+    height: 1.5rem;    
+    padding: 4px;
+    border-radius: 4px;
+}
+
+#grupper #groups .grupp img:hover {
+    background-color: #9AC481;
     z-index: 200;
-    transition:ease-in-out 0.3s;
+    cursor: pointer;
 }

@@ -36,9 +36,11 @@
 			nm = document.createElement('th');
 			ye = document.createTextNode("grupp"+ ++count);
 			nm.appendChild(ye);
+			nm.innerHTML += "<img src='../images/copy.svg' onclick='copyGroups(grupp"+count+")'>";
 			n.appendChild(nm);
 			groupText.appendChild(n);
 			groupText.setAttribute('class','grupp');
+			groupText.setAttribute('id','grupp'+count);
 			groupFile.push("grupp " +count);
 			group.forEach(student => {
 				nm = document.createElement('tr');
@@ -50,6 +52,7 @@
 				groupFile.push(student);
 			});
 			groupFile.push("");
+			
 			content.appendChild(groupText);
 		});
 		downloadGroup(document.getElementById('download'),groupFile,count);
