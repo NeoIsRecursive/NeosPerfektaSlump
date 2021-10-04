@@ -1,6 +1,6 @@
 # NeosPerfektaSlump
 
-[Try it here!](http://neoishere.com/legacy/sites/elevfragor/)
+[Try it here!](http://neoishere.com/NeosPerfektaSlump/)
 
 ## about
 
