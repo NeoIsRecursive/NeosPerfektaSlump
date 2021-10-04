@@ -63,6 +63,6 @@
 		console.log(groups.innerText);
 		navigator.clipboard.writeText(groups.innerText);
 		if (groups.id == "groups") {console.log("copied all") }else {
-			console.log("copied "+groups.id)
+			console.log("copied "+groups.id);
 		};
 	}
