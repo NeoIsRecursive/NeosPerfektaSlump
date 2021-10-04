@@ -14,7 +14,7 @@ It was made as a gymnasiearbete project and has some neat features.
     * By file
     * Copy all groups
     * Copy individual groups
-* reading files
+* Reading files
 
 as you can see in the code it is currently limited to .csv files since they are always formated
 the same.
