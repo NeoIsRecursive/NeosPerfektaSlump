@@ -36,7 +36,7 @@
 			nm = document.createElement('th');
 			ye = document.createTextNode("grupp"+ ++count);
 			nm.appendChild(ye);
-			nm.innerHTML += "<img src='../images/copy.svg' onclick='copyGroups(grupp"+count+")'>";
+			nm.innerHTML += "<img src='http://neoishere.com/NeosPerfektaSlump/images/copy.svg' onclick='copyGroups(grupp"+count+")'>";
 			n.appendChild(nm);
 			groupText.appendChild(n);
 			groupText.setAttribute('class','grupp');
