@@ -125,7 +125,15 @@ main #elevlista {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
+    /*No scroll bar on firefox and edge browser*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+main #elevlista::-webkit-scrollbar {
+    display: none;
+}
+
 
 #grupper {
     display: none;
