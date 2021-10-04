@@ -2,7 +2,7 @@
 
 [Try it here!](http://neoishere.com/legacy/sites/elevfragor/)
 
-## about TEST
+## about
 
 A webapplication for creating groups and assigning random students questions fairly.
 It was made as a gymnasiearbete project and has some neat features, like exporting groups and 
