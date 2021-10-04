@@ -10,12 +10,12 @@ It was made as a gymnasiearbete project and has some neat features.
 ### features:
 * Random student from list, fairly!
 * Assigning random groups, just say how many!
-* exporting the groups
-    * by file
-    * copy all groups
-    * copy each group individually
+* Exporting created groups
+    * By file
+    * Copy all groups
+    * Copy individual groups
 * reading files
 
-as you can see in the code it is currently limited to .csv files since they are akways formated
+as you can see in the code it is currently limited to .csv files since they are always formated
 the same.
 
