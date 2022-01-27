@@ -2,7 +2,7 @@
 
 <img src="misc/demoCompressed.gif">
 
-[Try it here!](http://neoishere.com/NeosPerfektaSlump/)
+[Try it here!](https://neosperfektaslump.neo.fyi)
 **This site saves nothing about you or your files, everything is computed locally in YOUR browser.**
 
 ## about
@@ -11,7 +11,7 @@ A webapplication for creating groups and assigning random students questions fai
 It was made as a gymnasiearbete project and has some neat features.
 
 ### features:
-* Random student from list, fairly!
+* Get random student from list, fairly!
 * Assigning random groups, just say how many!
 * Exporting created groups:
     1. Download all groups to .txt.
@@ -28,5 +28,12 @@ TODO
 - [ ] make so copy to clipboard tells user it copied 
 - [ ] change placement of input changer
 - [ ] new icon/logo for the project?
+
+### Maybe do
+
+It would be cool to have the user uploaded file save, and the "progress" would sustain.
+
+Also it would be cool to have accounts and stuff, we'll see.
+
 
 
