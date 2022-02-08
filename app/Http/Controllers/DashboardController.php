@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -13,9 +13,10 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         //
-        return view('dashboard')->with(['lists' => [1, 2, 3, 4, 5]]);
+        $groups = Auth::user()->groups()->get(['group_name', 'id']);
+        return view('dashboard')->with(['lists' => $groups]);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AddListController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GetListJsonController;
 use App\Http\Controllers\LogInController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::view('/', 'index')->middleware('guest')->name('login');
 Route::post('login', LogInController::class);
-Route::get('dashboard', DashboardController::class);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', DashboardController::class);
+    Route::view('uploadFile', 'uploadFile')->name('uploadFile');
+    Route::post('addList', AddListController::class);
+    Route::get('getGroupApi', GetListJsonController::class);
+});

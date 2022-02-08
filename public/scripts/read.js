@@ -32,7 +32,7 @@
 		document.getElementById('svara').innerHTML = "REDO!";
 		drawList();
 	}
-    
+
 	//kollar om filnamnet slutar på .csv, den läser alla sorters filer men en del format fungerar sådärr, så csv är bra för det följer regler
 	function check(file){
 		var hej = file.split(".");
@@ -45,7 +45,7 @@
 
 	//läsning av filer
 	function readCsv(file, cols = null) {
-		
+
 		let isCsv = check(file.files[0].name);
 		if (!isCsv){
 			return alert("not a .csv");
@@ -84,4 +84,3 @@
 			changeList(temp);
 		}
 	}
-    

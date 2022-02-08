@@ -1,3 +1,7 @@
 @foreach($lists as $list)
-<p>{{ $list }}</p>
+<button onclick="getGroup({{ $list['id'] }})">{{ $list['group_name'] }}</button>
 @endforeach
+
+<a href="{{route('uploadFile')}}">upload file</a>
+
+@include('random')

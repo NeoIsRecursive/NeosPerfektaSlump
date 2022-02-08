@@ -13,11 +13,11 @@
 
 	//removes background color from each student
 	function resetList(){
-		for (i = 0; i < students.length;i++){
+		for (i = students[0][1]; i < students[0][1] + students.length;i++){
 			updateList(i,"none");
 		}
 	}
-	
+
 
 	function drawStudentInList(name, idNum){
 		document.getElementById('students').innerHTML += "<li id=" + idNum +">"+name+"</li>";
@@ -52,7 +52,7 @@
 				groupFile.push(student);
 			});
 			groupFile.push("");
-			
+
 			content.appendChild(groupText);
 		});
 		downloadGroup(document.getElementById('download'),groupFile,count);
