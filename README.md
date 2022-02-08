@@ -22,6 +22,9 @@ It was made as a gymnasiearbete project and has some neat features.
     2. Copy all groups.
     3. Copy individual groups.
 * Reading files.
+* Creating a user.
+* Uploading list files to database.
+* Getting files from a database.
 
 As you can see in the code it is currently limited to .csv files since they are always formated
 the same.
@@ -35,4 +38,6 @@ TODO
 
 ### do
 
-It would be cool to have the user uploaded file save, and the "progress" would sustain.
+groups should also be fair, possible by computing all possible unique group combos and choosing one at random, like the answeree is computed?
+answered should sustain so maybe localstorage, yeah probarbly.
+sustain when logging in on other computer????? 
