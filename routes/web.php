@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AddListController;
+use App\Http\Controllers\CreateListController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GetListJsonController;
 use App\Http\Controllers\LogInController;
@@ -23,6 +23,6 @@ Route::post('login', LogInController::class);
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', DashboardController::class);
     Route::view('uploadFile', 'uploadFile')->name('uploadFile');
-    Route::post('addList', AddListController::class);
+    Route::post('addList', CreateListController::class);
     Route::get('getGroupApi', GetListJsonController::class);
 });

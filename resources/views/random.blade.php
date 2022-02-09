@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="SE">
-
-<head>
-    <title>Neos perfekta slump</title>
-    <link rel="stylesheet" type="text/css" href="styles/newstyle.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta charset="UTF-8">
-</head>
-
-<body>
     <div class="container">
-        <button onclick="changeInput()" id="changeInput">🪛</button>
-        <header>
-            <h1 class="button">Neos perfekta slump</h1>
+
+        <div class="menu">
+            @if(auth())
+            @include('components.userFiles')
+            @else
+            <button onclick="changeInput()" id="changeInput">🪛</button>
             <input style="display:none;" type="file" id="file" name="file" onchange="readCsv(this)">
             <label for="file" class="slumpcont button" id="file2" tabindex="0">choose CSV file!</label>
+            @endif
             <input type="text" value="" placeholder="name" id="addName" class="button">
             <button onclick="show()" id="showbtn" class="button">Groups</button>
-        </header>
+        </div>
 
         <main class="cont" id="container">
             <div id="slumpKnapp" class="card">
@@ -29,7 +22,6 @@
                     <li>The list of your students names will end up here! :D</li>
                 </ul>
             </div>
-
         </main>
 
         <div id="grupper" class="card">

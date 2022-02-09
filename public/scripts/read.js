@@ -16,11 +16,11 @@
 			var x = document.getElementById('file2');
 			var y = document.getElementById('addName');
 			if (x.style.display === 'none') {
-				x.style.display = 'block';
+				x.style.display = 'inline';
 				y.style.display = 'none';
 			} else {
 				x.style.display = 'none';
-				y.style.display = 'block';
+				y.style.display = 'inline';
 			}
 	}
 

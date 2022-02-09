@@ -6,7 +6,7 @@ use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AddListController extends Controller
+class CreateListController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -29,11 +29,15 @@ class AddListController extends Controller
         $insertItems = [];
 
         foreach ($items as $item) {
-            $insertItems[] = ['member_name' => $item];
+            if ($item !== '') {
+                $insertItems[] = ['member_name' => $item];
+            }
         }
 
 
         $insert = Auth::user()->groups()->create(['group_name' => $name]);
         $insert->members()->createMany($insertItems);
+
+        return redirect('dashboard');
     }
 }
