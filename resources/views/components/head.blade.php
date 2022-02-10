@@ -9,4 +9,4 @@
 </head>
 
 <body>
-    <h1 class="button">Neos perfekta slump</h1>
+    <h1>Neos perfekta slump</h1>

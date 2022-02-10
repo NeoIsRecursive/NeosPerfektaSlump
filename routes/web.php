@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateListController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GetListController;
 use App\Http\Controllers\GetListJsonController;
 use App\Http\Controllers\LogInController;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::middleware(['auth'])->group(function () {
     Route::view('uploadFile', 'uploadFile')->name('uploadFile');
     Route::post('addList', CreateListController::class);
     Route::get('getGroupApi', GetListJsonController::class);
+    Route::get('groups/{group}/manage', GetListController::class);
 });

@@ -4,3 +4,8 @@ async function getGroup(id){
     changeList(groupContent);
     console.log(groupContent);
 }
+
+document.querySelector('button').addEventListener('click', (option)=>{
+    option.preventDefault();
+    getGroup(document.querySelector('select').value);
+})

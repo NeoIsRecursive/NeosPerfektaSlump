@@ -18,10 +18,11 @@ class CreateListController extends Controller
     {
         //
         $list = $request->validate([
-            'list' => ['required', 'mimes:txt,csv']
+            'list' => ['required', 'mimes:txt,csv'],
+            'name' => ['nullable', 'string', 'max:50']
         ]);
 
-        $name = $list['list']->getClientOriginalName();
+        $name = isset($list['name']) ? $list['name'] : $list['list']->getClientOriginalName();
 
         $items = file_get_contents($list['list']);
         $items = preg_split('/\n/', preg_replace('/\r/', '', $items));
@@ -33,7 +34,6 @@ class CreateListController extends Controller
                 $insertItems[] = ['member_name' => $item];
             }
         }
-
 
         $insert = Auth::user()->groups()->create(['group_name' => $name]);
         $insert->members()->createMany($insertItems);
