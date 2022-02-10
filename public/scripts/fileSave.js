@@ -1,8 +1,8 @@
     //denna funktionen skapar en fil med grupperna som användaren kan ladda ner
-    //skapar en "blob" med text som sedan kan laddas ner, hur vet jag inte riktigt då det inte fanns super mycket på nätet om det :/    
+    //skapar en "blob" med text som sedan kan laddas ner, hur vet jag inte riktigt då det inte fanns super mycket på nätet om det :/
     function downloadGroup(x,groups,count){
-        test = document.getElementById('file').files[0];
-        var y;
+        let y;
+        let test;
         if(test == null){
             y = "min_lista";
         }else {

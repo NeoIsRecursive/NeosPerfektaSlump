@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\CreateListController;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\CreateGroupController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GetListController;
-use App\Http\Controllers\GetListJsonController;
+use App\Http\Controllers\GetGroupController;
+use App\Http\Controllers\GetGroupJsonController;
 use App\Http\Controllers\LogInController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +25,9 @@ Route::post('login', LogInController::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', DashboardController::class);
-    Route::view('uploadFile', 'uploadFile')->name('uploadFile');
-    Route::post('addList', CreateListController::class);
-    Route::get('getGroupApi', GetListJsonController::class);
-    Route::get('groups/{group}/manage', GetListController::class);
+    Route::post('addGroup', CreateGroupController::class);
+    Route::get('getGroupApi', GetGroupJsonController::class);
+    Route::get('groups/{group}/manage', GetGroupController::class);
+    Route::get('app', AppController::class)->name('app');
+    Route::get('logout', LogoutController::class)->name('logout');
 });

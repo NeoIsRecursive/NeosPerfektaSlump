@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CreateListController extends Controller
+class CreateGroupController extends Controller
 {
     /**
      * Handle the incoming request.

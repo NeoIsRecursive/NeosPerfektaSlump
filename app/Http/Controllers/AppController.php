@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GetListController extends Controller
+class AppController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -14,11 +13,9 @@ class GetListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Group $group)
+    public function __invoke(Request $request)
     {
-        if (Auth::id() === $group->user_id) {
-
-            return view('manage-groups')->with(['members' => $group->members()->get()]);
-        }
+        $groups = Auth::user()->groups()->get(['group_name', 'id']);
+        return view('random')->with(['lists' => $groups]);
     }
 }
