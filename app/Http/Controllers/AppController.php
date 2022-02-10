@@ -13,9 +13,11 @@ class AppController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        $groups = Auth::user()->groups()->get(['group_name', 'id']);
-        return view('random')->with(['lists' => $groups]);
+        if (!Auth::user()) {
+            return view('random');
+        }
+        return view('random')->with(['lists' => Auth::user()->groups()->get(['group_name', 'id'])]);
     }
 }

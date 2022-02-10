@@ -22,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')->middleware('guest')->name('login');
 Route::post('login', LogInController::class);
+Route::get('app', AppController::class)->name('app');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', DashboardController::class);
     Route::post('addGroup', CreateGroupController::class);
     Route::get('getGroupApi', GetGroupJsonController::class);
     Route::get('groups/{group}/manage', GetGroupController::class);
-    Route::get('app', AppController::class)->name('app');
     Route::get('logout', LogoutController::class)->name('logout');
 });
