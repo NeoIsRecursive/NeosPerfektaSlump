@@ -1,5 +1,5 @@
-<div>
-    <p class="mb-4 font-bold">Manage your groups:</p>
+<div class="drop-shadow-lg bg-white p-4 rounded">
+    <h2 class="mb-4 font-bold text-lg">Manage your groups:</h2>
     <div class="flex gap-4 flex-wrap">
         @foreach($lists as $list)
         <form action="groups/{{ $list->id }}/manage">

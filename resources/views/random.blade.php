@@ -1,15 +1,14 @@
     @include('components.head')
 
-    <div class="p-2 w-full bg-white grid grid-cols-3">
+    <div class="p-2 w-full bg-white grid grid-cols-1 md:grid-cols-3">
 
-        <div>
+        <div class="flex flex-col mx-10 gap-2">
             @auth
             @include('components.user-files-app')
-            @else
-            <button onclick="changeInput()" id="changeInput">🪛</button>
-            <input style="display:none;" type="file" id="file" name="file" onchange="readCsv(this)">
-            <label for="file" class="slumpcont button" id="file2" tabindex="0">choose CSV file!</label>
             @endauth
+            <label for="file" class="form-label" id="file2" tabindex="0">choose CSV file!</label>
+            <input type="file" id="file" name="file" onchange="readCsv(this)" class="form-control input">
+            <label for="addName">Add temporary name to the list:</label>
             <input type="text" value="" placeholder="name" id="addName" class="input">
             {{-- <button onclick="show()" id="showbtn" class="button">Groups</button> --}}
         </div>
@@ -41,6 +40,7 @@
     <script src="{{ asset('scripts/read.js') }}"></script>
     <script src="{{ asset('scripts/groups.js') }}"></script>
     <script src="{{ asset('scripts/fileSave.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 
 </html>
