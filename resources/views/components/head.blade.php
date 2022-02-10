@@ -9,15 +9,15 @@
 </head>
 
 <body>
-    <nav class="w-full bg-white z-10 flex items-center justify-between relative drop-shadow">
+    <nav class="w-full bg-white z-10 flex items-center justify-between relative pt-1">
         <h1 class="p-2 text-xl font-mono">Neos perfekta slump</h1>
         <div class="flex gap-4 p-2">
             <a href="{{ route('app') }}" class="p-2">App</a>
             @auth
-            <a href="dashboard" class="p-2">Manage</a>
-            <a href="logout" class="p-2">Log out</a>
+            <a href="/dashboard" class="p-2">Manage</a>
+            <a href="/logout" class="p-2">Log out</a>
             @else
-            <a href="login" class="p-2">Log in</a>
+            <a href="/login" class="p-2">Log in</a>
             @endauth
         </div>
     </nav>
