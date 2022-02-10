@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index')->middleware('guest')->name('login');
+Route::view('/', 'index')->middleware('guest');
+Route::view('login', 'login')->name('login');
 Route::post('login', LogInController::class);
 Route::get('app', AppController::class)->name('app');
 
