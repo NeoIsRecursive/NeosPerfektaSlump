@@ -1,4 +1,5 @@
 @include('components.head')
+<div class="drop-shadow w-full h-1 bg-white"></div>
 <div class="absolute h-full max-h-screen w-full flex justify-center items-center top-0">
     <form action="/login" method="post" class="flex flex-col gap-4 w-full sm:w-1/4 max-w-screen px-8 py-4 drop-shadow-md bg-white rounded-lg mt-4 mx-auto">
         @csrf

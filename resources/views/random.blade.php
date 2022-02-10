@@ -1,5 +1,5 @@
     @include('components.head')
-
+    <div class="drop-shadow w-full h-1 bg-white"></div>
     <div class="p-2 w-full bg-white grid grid-cols-1 md:grid-cols-3">
 
         <div class="flex flex-col mx-10 gap-2">
