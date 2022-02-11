@@ -28,11 +28,11 @@ Route::post('login', LogInController::class);
 Route::get('app', AppController::class)->name('app');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('groups', DashboardController::class);
+    Route::get('manager', DashboardController::class);
     Route::get('logout', LogoutController::class)->name('logout');
-    Route::post('addGroup', CreateGroupController::class);
     Route::get('getGroupApi', GetGroupJsonController::class);
-    Route::get('groups/{group}/manage', GetGroupController::class);
-    Route::patch('groups/{group}/manage/add-member', AddMemberController::class);
-    Route::delete('groups/{group}/manage/remove-member/{member:id}', RemoveMemberController::class);
+    Route::post('manager/add-group', CreateGroupController::class);
+    Route::get('manager/groups/{group}/manage', GetGroupController::class);
+    Route::patch('manager/groups/{group}/manage/add-member', AddMemberController::class);
+    Route::delete('manager/groups/{group}/manage/remove-member/{member:id}', RemoveMemberController::class);
 });

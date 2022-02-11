@@ -22,5 +22,6 @@ class RemoveMemberController extends Controller
             $member->delete();
             return back();
         }
+        abort(404);
     }
 }

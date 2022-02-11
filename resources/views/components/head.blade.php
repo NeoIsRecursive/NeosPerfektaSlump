@@ -14,7 +14,7 @@
         <div class="flex gap-4 p-2">
             <a href="{{ route('app') }}" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('app*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white transition-all">Das slump</a>
             @auth
-            <a href="/groups" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('groups*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white transition-all">Manager</a>
+            <a href="/manager" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('manager*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white transition-all">Manager</a>
             <a href="/logout" class="text-lg p-2 px-6 bg-white rounded-lg hover:drop-shadow-lg hover:bg-red-800 hover:text-white transition-all">Log out</a>
             @else
             <a href="/login" class="text-lg p-2 px-6 bg-white rounded-lg hover:drop-shadow-lg hover:bg-green-600 hover:text-white transition-all">Log in</a>

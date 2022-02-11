@@ -4,7 +4,7 @@
 
     @include('components.error')
 
-    <form action="addGroup" method="post" enctype="multipart/form-data" class="flex flex-col gap-2">
+    <form action="manager/add-group" method="post" enctype="multipart/form-data" class="flex flex-col gap-2">
 
         @csrf
             <label for="file" class="form-label">Choose list to upload:</label>

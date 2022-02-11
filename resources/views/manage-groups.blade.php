@@ -2,14 +2,14 @@
 <div class="bg-white p-4 drop-shadow-lg z-20">
     <h2 class="text-lg">Group manager: you are currently managing "{{ $group->group_name }}"</h2>
 </div>
-<main class="grid grid-cols-1 md:w-2/3 lg:w-1/2 mx-auto mt-4">
+<main class="grid grid-cols-1 md:w-2/3 lg:w-1/2 mx-auto my-4">
     <div class="flex flex-col gap-1 drop-shadow-md bg-white rounded-lg px-20 mx-4 py-2">
         <h3>"{{ $group->group_name }}"</h2>
             <hr>
         @foreach($members as $member)
         <div tabindex="0" class="flex justify-between items-center group gap-12 p-2 px-4 bg-white focus:bg-slate-300 rounded focus:drop-shadow hover:bg-slate-300 rounded hover:drop-shadow transition">
             <p> {{ $member->member_name }} </p>
-            <form method="post" action="/groups/{{ $group->id }}/manage/remove-member/{{ $member->id }}">
+            <form method="post" action="/manager/groups/{{ $group->id }}/manage/remove-member/{{ $member->id }}">
                 @csrf
                 @method('delete')
                 <button class="text-xs p-1 invisible group-focus:visible focus:visible group-hover:visible transition-all">&#10060;</button>
@@ -17,7 +17,7 @@
         </div>
         @endforeach
         <hr>
-        <form action="/groups/{{ $group->id }}/manage/add-member" method="post" class="flex flex-col gap-2 items-start">
+        <form action="/manager/groups/{{ $group->id }}/manage/add-member" method="post" class="flex flex-col gap-2 items-start">
             @csrf
             @method('patch')
             <label for="new-member-name">New member name:</label>

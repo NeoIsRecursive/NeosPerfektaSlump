@@ -17,6 +17,6 @@ class DashboardController extends Controller
     {
         //
         $groups = Auth::user()->groups()->get(['group_name', 'id']);
-        return view('dashboard')->with(['lists' => $groups]);
+        return view('manager')->with(['lists' => $groups]);
     }
 }
