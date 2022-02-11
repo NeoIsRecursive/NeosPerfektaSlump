@@ -28,7 +28,7 @@ Route::post('login', LogInController::class);
 Route::get('app', AppController::class)->name('app');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', DashboardController::class);
+    Route::get('groups', DashboardController::class);
     Route::get('logout', LogoutController::class)->name('logout');
     Route::post('addGroup', CreateGroupController::class);
     Route::get('getGroupApi', GetGroupJsonController::class);

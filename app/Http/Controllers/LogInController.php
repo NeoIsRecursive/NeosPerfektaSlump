@@ -22,7 +22,7 @@ class LogInController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('dashboard');
+            return redirect('app');
         }
 
         return back()->withErrors([
