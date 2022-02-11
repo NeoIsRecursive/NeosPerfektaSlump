@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Member;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Group;
+use Illuminate\Support\Facades\Auth;
 
 class RemoveMemberController extends Controller
 {
@@ -12,8 +16,11 @@ class RemoveMemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Group $group, Member $member, Request $request)
     {
-        //
+        if (Auth::id() === $group->user_id) {
+            $member->delete();
+            return back();
+        }
     }
 }

@@ -13,9 +13,12 @@
 
 	//removes background color from each student
 	function resetList(){
-		for (i = students[0][1]; i < students[0][1] + students.length;i++){
-			updateList(i,"none");
-		}
+		// for (i = students[0][1]; i < students[0][1] + students.length;i++){
+		// 	updateList(i,"none");
+		// }
+        students.forEach(student => {
+            updateList(student[1],"none");
+        });
 	}
 
 

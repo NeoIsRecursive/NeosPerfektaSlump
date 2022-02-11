@@ -11,6 +11,7 @@
             <p> {{ $member->member_name }} </p>
             <form method="post" action="/groups/{{ $group->id }}/manage/remove-member/{{ $member->id }}">
                 @csrf
+                @method('delete')
                 <button class="text-xs">&#10060;</button>
             </form>
         </div>

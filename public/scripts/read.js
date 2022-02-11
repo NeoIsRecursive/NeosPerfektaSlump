@@ -1,7 +1,12 @@
  	function addFromInput(){
-		var name = document.getElementById('addName').value;
+		let name = document.getElementById('addName').value;
 		if (name == "") {alert("you must type in a name"); return;}
-		var index = students.length;
+		let index;
+        if (students.length < 1){
+            index = 0;
+        } else {
+            index = students[students.length - 1][1] + 1;
+        }
 		notTaken.push([name,index]);
 		students.push([name, index]);
 		drawStudentInList(name,index);
@@ -13,8 +18,8 @@
 	});
 
 	function changeInput(){
-			var x = document.getElementById('file2');
-			var y = document.getElementById('addName');
+			const x = document.getElementById('file2');
+			const y = document.getElementById('addName');
 			if (x.style.display === 'none') {
 				x.style.display = 'inline';
 				y.style.display = 'none';
@@ -35,12 +40,8 @@
 
 	//kollar om filnamnet slutar på .csv, den läser alla sorters filer men en del format fungerar sådärr, så csv är bra för det följer regler
 	function check(file){
-		var hej = file.split(".");
-		if (hej[hej.length-1] != "csv"){
-			return false;
-		} else {
-			return true;
-		}
+		const splitFile = file.split(".");
+		return splitFile[splitFile.length-1] == "csv";
 	}
 
 	//läsning av filer
