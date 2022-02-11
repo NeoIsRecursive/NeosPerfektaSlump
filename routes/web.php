@@ -7,6 +7,7 @@ use App\Http\Controllers\GetGroupController;
 use App\Http\Controllers\GetGroupJsonController;
 use App\Http\Controllers\LogInController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\Member\AddMemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('getGroupApi', GetGroupJsonController::class);
     Route::get('groups/{group}/manage', GetGroupController::class);
     Route::get('logout', LogoutController::class)->name('logout');
+    Route::patch('/groups/{group}/manage/add-member', AddMemberController::class);
 });

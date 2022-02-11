@@ -40,7 +40,7 @@
     <script src="{{ asset('scripts/read.js') }}"></script>
     <script src="{{ asset('scripts/groups.js') }}"></script>
     <script src="{{ asset('scripts/fileSave.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="{{ asset('scripts/tw-elements/index.min.js') }}"></script>
 </body>
 
 </html>

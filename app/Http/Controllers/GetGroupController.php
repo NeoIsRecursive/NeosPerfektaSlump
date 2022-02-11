@@ -17,7 +17,7 @@ class GetGroupController extends Controller
     public function __invoke(Group $group)
     {
         if (Auth::id() === $group->user_id) {
-            return view('manage-groups')->with(['members' => $group->members()->get(), 'groupName' => $group->group_name]);
+            return view('manage-groups')->with(['members' => $group->members()->get(), 'group' => $group]);
         }
 
         abort(404);
