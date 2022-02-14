@@ -7,8 +7,9 @@
 	}
 
 	//Gives a background color to the id of taken student, used for both setting and removing
-	function updateList(idNumber, color){
-		document.getElementById(idNumber).style = "background-color:"+color;
+	function updateList(idNumber){
+		document.getElementById(idNumber).classList.toggle("bg-slate-400");
+        document.getElementById(idNumber).classList.toggle("text-white");
 	}
 
 	//removes background color from each student
@@ -16,14 +17,14 @@
 		// for (i = students[0][1]; i < students[0][1] + students.length;i++){
 		// 	updateList(i,"none");
 		// }
-        students.forEach(student => {
+        students.forEach(student => {
             updateList(student[1],"none");
         });
 	}
 
 
 	function drawStudentInList(name, idNum){
-		document.getElementById('students').innerHTML += "<li id=" + idNum +">"+name+"</li>";
+		document.getElementById('students').innerHTML += "<li id=" + idNum +" class='rounded drop-shadow-sm p-2 bg-white'>"+name+"</li>";
 	}
 
     //creates html tables for each group, lots of code...

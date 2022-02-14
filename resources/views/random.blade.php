@@ -11,20 +11,26 @@
             <label for="addName">Add temporary name to the list:</label>
             <div class="max-w-full flex gap-2">
                 <input type="text" value="" placeholder="name" id="addName" class="input w-full">
-                <button class="button hover:bg-orange-400 w-fit" onclick="">Add</button>
+                <button class="button hover:bg-pink-400 hover:text-white focus:bg-pink-400 focus:text-white" onclick="addFromInput()">Add</button>
             </div>
 
             {{-- <button onclick="show()" id="showbtn" class="button">Groups</button> --}}
         </div>
 
-        <main class="bg-white drop-shadow py-4 px-10 rounded-lg">
-            <div id="slumpKnapp" class="flex items-center justify-between gap-4">
-                <p class="text-lg">Le random: <span id="svara" >No students yet</span></p>
-                <button onclick="slump()" class="button hover:bg-green-400">Give question</button>
+        <main class="flex flex-col gap-2 bg-white drop-shadow py-4 px-10 rounded-lg">
+            <div id="slumpKnapp" class="flex items-start justify-between gap-4">
+                <div>
+                    <p class="font-serif">Le random:</p>
+                    <p id="svara" class="text-lg">&nbsp;</p>
+                </div>
+                <button onclick="slump()" class="button hover:bg-green-400 focus:bg-green-400">Give question</button>
             </div>
-            <div id="elevlista" class="card">
-                <ul id="students">
-                    <li>The list of your students names will end up here! :D</li>
+
+            <hr>
+
+            <div id="elevlista">
+                <ul id="students" class="flex flex-col gap-1">
+                    <li class="rounded-lg drop-shadow p-2">Your list of names will end up here! :D</li>
                 </ul>
             </div>
         </main>

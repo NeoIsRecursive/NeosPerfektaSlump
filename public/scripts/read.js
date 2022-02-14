@@ -33,8 +33,8 @@
 		students = x;
 		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
 		notTaken = [...students];
-		document.getElementById('students').innerHTML = "";
-		document.getElementById('svara').innerHTML = "REDO!";
+		document.getElementById('students').textContent = "";
+		document.getElementById('svara').innerHTML = "&nbsp;";
 		drawList();
 	}
 

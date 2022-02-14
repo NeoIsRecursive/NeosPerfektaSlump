@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./resources/views/**/*','./node_modules/tw-elements/dist/js/**/*.js'],
+  content: ['./resources/views/**/*', './public/scripts/**/*.js' ,'./node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
     extend: {},
   },

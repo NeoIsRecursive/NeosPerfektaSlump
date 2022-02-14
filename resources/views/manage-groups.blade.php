@@ -7,7 +7,7 @@
         <h3>"{{ $group->group_name }}"</h2>
             <hr>
         @foreach($members as $member)
-        <div tabindex="0" class="flex justify-between items-center group gap-12 p-2 px-4 bg-white focus:bg-slate-300 rounded focus:drop-shadow hover:bg-slate-300 rounded hover:drop-shadow transition">
+        <div tabindex="0" class="flex justify-between items-center group gap-12 p-2 px-4 bg-white focus:bg-slate-300 rounded focus:drop-shadow hover:bg-slate-300 hover:drop-shadow transition">
             <p> {{ $member->member_name }} </p>
             <form method="post" action="/manager/groups/{{ $group->id }}/manage/remove-member/{{ $member->id }}">
                 @csrf
