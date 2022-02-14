@@ -37,6 +37,6 @@ class CreateGroupController extends Controller
         $insert = Auth::user()->groups()->create(['group_name' => $name]);
         $insert->members()->createMany($insertItems);
 
-        return redirect('dashboard');
+        return redirect('manager');
     }
 }

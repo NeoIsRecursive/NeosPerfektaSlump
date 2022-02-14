@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\CreateGroupController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\GetGroupController;
 use App\Http\Controllers\GetGroupJsonController;
 use App\Http\Controllers\LogInController;
@@ -28,7 +28,7 @@ Route::post('login', LogInController::class);
 Route::get('app', AppController::class)->name('app');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('manager', DashboardController::class);
+    Route::get('manager', ManagerController::class);
     Route::get('logout', LogoutController::class)->name('logout');
     Route::get('getGroupApi', GetGroupJsonController::class);
     Route::post('manager/add-group', CreateGroupController::class);
