@@ -16,14 +16,14 @@ class CreateGroupController extends Controller
     public function __invoke(Request $request)
     {
         //
-        $list = $request->validate([
+        $validated = $request->validate([
             'list' => ['required', 'mimes:txt,csv'],
             'name' => ['nullable', 'string', 'max:50']
         ]);
 
-        $name = isset($list['name']) ? $list['name'] : $list['list']->getClientOriginalName();
+        $name = isset($validated['name']) ? $validated['name'] : $validated['list']->getClientOriginalName();
 
-        $items = file_get_contents($list['list']);
+        $items = file_get_contents($validated['list']);
         $items = preg_split('/\n/', preg_replace('/\r/', '', $items));
 
         $insertItems = [];
@@ -33,6 +33,8 @@ class CreateGroupController extends Controller
                 $insertItems[] = ['member_name' => $item];
             }
         }
+
+        //dd($insertItems);
 
         $insert = Auth::user()->groups()->create(['group_name' => $name]);
         $insert->members()->createMany($insertItems);

@@ -16,7 +16,7 @@ class RemoveMemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Group $group, Member $member, Request $request)
+    public function __invoke(Group $group, Member $member)
     {
         if (Auth::id() === $group->user_id) {
             $member->delete();
