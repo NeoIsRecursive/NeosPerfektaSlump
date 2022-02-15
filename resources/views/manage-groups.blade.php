@@ -3,7 +3,7 @@
     <h2 class="text-lg">Group manager: you are currently managing "{{ $group->group_name }}"</h2>
 </div>
 <main class="grid grid-cols-1 lg:w-1/2 mx-auto my-4">
-    <div class="flex flex-col gap-1 drop-shadow-md bg-white rounded-lg px-20 mx-4 py-2">
+    <div class="flex flex-col gap-1 drop-shadow-md bg-white rounded-lg px-10 lg:px-20 mx-4 py-2">
         <h3>"{{ $group->group_name }}"</h2>
             <hr>
         @foreach($members as $member)

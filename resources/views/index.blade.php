@@ -1,5 +1,5 @@
 @include('components.head')
-<main class="w-1/2 mx-auto bg-white drop-shadow-md p-4 my-4 rounded">
+<main class="md:w-1/2 mx-auto bg-white drop-shadow-md p-4 my-4 rounded">
     <article class="">
         <h2 class="text-2xl text-center">Welcome to Neos perfekta slump</h2>
         <h3 class="text-lg">This web-app can:</h3>
