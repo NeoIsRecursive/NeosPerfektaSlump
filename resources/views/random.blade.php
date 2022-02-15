@@ -30,7 +30,7 @@
             <hr>
 
             <div id="elevlista">
-                <ul id="students" class="flex flex-col gap-1">
+                <ul id="students" class="flex flex-col">
                     <li class="rounded-lg drop-shadow p-2">Your list of names will end up here! :D</li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
             <button onclick="grouper.createGroups(document.getElementById('amount').value)">create groups</button>
             <button onclick="grouper.copyGroups()">copy</button>
             <a id="download">download</a>
-            <div id="groups"></div>
+            <div id="groups" class="flex flex-wrap"></div>
         </div>
 
     </div>

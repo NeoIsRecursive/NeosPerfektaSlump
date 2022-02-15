@@ -16,7 +16,7 @@
             <button id="navopen" class="button md:hidden z-100">=</button>
         </div>
         <div class="hidden z-0 md:flex md:flex-row flex-col gap-4 p-2 text-center absolute top-12 left-0 h-screen w-screen md:h-fit md:w-fit bg-white md:static" >
-            <a href="{{ route('app') }}" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('app*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Das slump</a>
+            <a href="/slump" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('slump*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Slump</a>
             @auth
             <a href="/manager" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('manager*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Manager</a>
             <a href="/logout" class="text-lg p-2 px-6 bg-white rounded-lg hover:drop-shadow-lg hover:bg-red-500 hover:text-white focus:bg-red-500 focus:text-white focus:outline-none transition-all">Log out</a>

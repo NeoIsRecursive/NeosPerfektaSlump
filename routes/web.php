@@ -22,10 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index')->middleware('guest');
-Route::view('login', 'login')->name('login');
-Route::post('login', LogInController::class);
-Route::get('app', AppController::class)->name('app');
+//random
+Route::get('slump', AppController::class);
+
+Route::middleware(['guest'])->group(function () {
+    Route::view('/', 'index');
+    Route::view('login', 'login')->name('login');
+    Route::post('login', LogInController::class);
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('manager', ManagerController::class);

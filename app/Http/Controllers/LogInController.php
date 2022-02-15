@@ -22,7 +22,7 @@ class LogInController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('app');
+            return redirect('slump');
         }
 
         return back()->withErrors([

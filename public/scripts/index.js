@@ -9,5 +9,5 @@ window.getGroup = getGroup;
 window.asker = new Asker();
 window.grouper = new Grouper();
 document.getElementById('addName').addEventListener("keyup", x => {
-    if(x.key == 'Enter') asker.addFromInput();
+    if (x.key == 'Enter') asker.addFromInput();
 });

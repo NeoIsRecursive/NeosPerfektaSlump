@@ -43,15 +43,6 @@ export default class Grouper {
         this.drawGroups(groups);
 	}
 
-
-	copyGroups(groups = document.getElementById('groups')){
-		console.log(groups.innerText);
-		navigator.clipboard.writeText(groups.innerText);
-		if (groups.id == "groups") {console.log("copied all") }else {
-			console.log("copied "+groups.id);
-		};
-	}
-
     drawGroups(groups){
 		let count = 0;
 		let content = document.getElementById('groups');
@@ -61,12 +52,17 @@ export default class Grouper {
 			const groupText = document.createElement('table');
 			let n = document.createElement('tr');
 			let nm = document.createElement('th');
-			let ye = document.createTextNode("grupp"+ ++count);
+			let ye = document.createElement('p');
+            ye.textContent = "grupp"+ ++count;
 			nm.appendChild(ye);
-			nm.innerHTML += "<img src='http://neoishere.com/NeosPerfektaSlump/images/copy.svg' onclick='copyGroups(grupp"+count+")'>";
+            const copyicon = document.createElement('button');
+            copyicon.setAttribute('onclick','grouper.copyGroups(grupp'+count+')');
+            copyicon.innerHTML += "<img src='/../images/copy.svg' class='w-4 cursor-pointer'>";
+			nm.appendChild(copyicon);
+            nm.setAttribute('class','flex gap-2')
 			n.appendChild(nm);
 			groupText.appendChild(n);
-			groupText.setAttribute('class','grupp');
+			groupText.setAttribute('class','flex flex-col p-2');
 			groupText.setAttribute('id','grupp'+count);
 			groupFile.push("grupp " +count);
 			group.forEach(student => {
@@ -97,4 +93,10 @@ export default class Grouper {
         x.setAttribute("href",URL.createObjectURL(blob));
         x.setAttribute("download",count +" grupper_i_"+y+".txt");
     }
+
+    copyGroups(groups = document.getElementById('groups')){
+		console.log(groups.innerText);
+		navigator.clipboard.writeText(groups.innerText);
+		groups.id == "groups" ? console.log("copied all") : console.log("copied "+groups.id);
+	}
 }
