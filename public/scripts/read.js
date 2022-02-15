@@ -1,4 +1,4 @@
- 	function addFromInput(){
+ 	export function addFromInput(){
 		let name = document.getElementById('addName').value;
 		if (name == "") {alert("you must type in a name"); return;}
 		let index;
@@ -13,23 +13,19 @@
 		document.getElementById('addName').value = "";
 	}
 
-	document.getElementById('addName').addEventListener("keyup", x => {
-		if(x.key == 'Enter') addFromInput();
-	});
+	// function changeInput(){
+	// 		const x = document.getElementById('file2');
+	// 		const y = document.getElementById('addName');
+	// 		if (x.style.display === 'none') {
+	// 			x.style.display = 'inline';
+	// 			y.style.display = 'none';
+	// 		} else {
+	// 			x.style.display = 'none';
+	// 			y.style.display = 'inline';
+	// 		}
+	// }
 
-	function changeInput(){
-			const x = document.getElementById('file2');
-			const y = document.getElementById('addName');
-			if (x.style.display === 'none') {
-				x.style.display = 'inline';
-				y.style.display = 'none';
-			} else {
-				x.style.display = 'none';
-				y.style.display = 'inline';
-			}
-	}
-
-	function changeList(x){
+	export function changeList(x){
 		students = x;
 		if (students[students.length-1][0] == ""){students.splice(students.length-1);}
 		notTaken = [...students];
@@ -45,7 +41,7 @@
 	}
 
 	//läsning av filer
-	function readCsv(file, cols = null) {
+	export function readCsv(file, cols = null) {
 
 		let isCsv = check(file.files[0].name);
 		if (!isCsv){
