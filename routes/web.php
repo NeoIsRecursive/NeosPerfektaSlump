@@ -38,5 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('manager/add-group', CreateGroupController::class);
     Route::get('manager/groups/{group}/manage', GetGroupController::class);
     Route::patch('manager/groups/{group}/manage/add-member', AddMemberController::class);
-    Route::delete('manager/groups/{group}/manage/remove-member/{member:id}', RemoveMemberController::class);
+    Route::delete(
+        'manager/groups/{group}/manage/remove-member/{member}',
+        RemoveMemberController::class
+    )->scopeBindings();
 });
