@@ -15,7 +15,7 @@ export default class Asker {
 		}
 	}
 
-    	//loops through, is only set when a file is loaded
+    //loops through, is only set when a file is loaded
 	drawList(){
 		document.getElementById('students').innerHTML = "";
 		this.students.forEach(student => {
@@ -38,7 +38,7 @@ export default class Asker {
 
 
 	drawStudentInList(name, idNum){
-		document.getElementById('students').innerHTML += "<li id=" + idNum +" class='rounded drop-shadow-sm p-2 bg-white'>"+name+"</li>";
+		document.getElementById('students').innerHTML += "<li id=" + idNum +" class='rounded p-2 bg-white'>"+name+"</li>";
 	}
 
     addFromInput(){
