@@ -3,7 +3,7 @@
 
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
-        <div class="flex flex-col py-4 px-10 gap-2 bg-white drop-shadow rounded-lg">
+        <div class="flex flex-col py-4 px-10 gap-2 bg-white drop-shadow rounded-lg h-fit">
             @auth
             @include('components.user-files-app')
             @endauth
@@ -34,7 +34,7 @@
             </div>
         </main>
 
-        <div id="grupper" class="bg-white drop-shadow py-4 px-10 rounded-lg flex flex-col gap-2">
+        <div id="grupper" class="bg-white drop-shadow py-4 px-10 rounded-lg flex flex-col gap-2 h-fit">
                 <input id="amount" placeholder="number of groups" type="number" class="input max-w-full">
             <div class="flex gap-2 xl:justify-between">
                 <button onclick="grouper.createGroups(document.getElementById('amount').value)" class="button min-w-fit hover:bg-indigo-500 hover:text-white focus:bg-indigo-500 focus:text-white">create groups</button>
