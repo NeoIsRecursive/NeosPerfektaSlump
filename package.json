@@ -5,6 +5,7 @@
     "uglify-js": "^3.15.1"
   },
   "scripts": {
+    "dev":  "npx tailwindcss -i ./resources/css/input.css -o ./public/css/style.css --watch",
     "build": "tailwindcss build -i ./resources/css/input.css -o ./public/css/style.css && bash minify.sh"
   }
 }
