@@ -1,5 +1,5 @@
 import Asker from "./Asker.js";
-import getGroup from "./get/getGroup.js";
+import getGroup from "./getGroup.js";
 import Grouper from "./Grouper.js";
 
 window.randFloor = (len) => Math.floor(Math.random()*len);

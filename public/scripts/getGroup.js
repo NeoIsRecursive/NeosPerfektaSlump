@@ -1,4 +1,4 @@
-import load from './loading/load.js';
+import load from './load.js';
 
 export default async function getGroup(id){
     load(true);

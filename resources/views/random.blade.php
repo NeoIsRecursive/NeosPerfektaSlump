@@ -1,5 +1,5 @@
     @include('components.head')
-    <script type="module" src="{{ asset('scripts/index.js') }}"></script>
+    <script type="module" src="{{ asset('scripts/min/index.min.js') }}"></script>
     <div class="drop-shadow w-full h-1 bg-white"></div>
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
