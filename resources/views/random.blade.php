@@ -1,6 +1,6 @@
     @include('components.head')
     <script type="module" src="{{ asset('scripts/min/index.min.js') }}"></script>
-    <div class="drop-shadow w-full h-1 bg-white"></div>
+
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
         <div class="flex flex-col py-4 px-10 gap-2 bg-white drop-shadow rounded-lg">
@@ -37,9 +37,9 @@
         <div id="grupper" class="bg-white drop-shadow py-4 px-10 rounded-lg flex flex-col gap-2">
                 <input id="amount" placeholder="number of groups" type="number" class="input max-w-full">
             <div class="flex gap-2 xl:justify-between">
-                <button onclick="grouper.createGroups(document.getElementById('amount').value)" class="button min-w-fit hover:bg-indigo-500 hover:text-white">create groups</button>
-                <button onclick="grouper.copyGroups()" class="button hover:bg-cyan-300 hover:text-white"">copy</button>
-                <a id="download" class="button cursor-pointer hover:bg-amber-300 hover:text-white"">download</a>
+                <button onclick="grouper.createGroups(document.getElementById('amount').value)" class="button min-w-fit hover:bg-indigo-500 hover:text-white focus:bg-indigo-500 focus:text-white">create groups</button>
+                <button onclick="grouper.copyGroups()" class="button hover:bg-indigo-500 hover:text-white focus:bg-indigo-500 focus:text-white">copy</button>
+                <a id="download" class="button cursor-pointer hover:bg-indigo-500 hover:text-white focus:bg-indigo-500 focus:text-white">download</a>
             </div>
             <div id="groups" class="flex flex-wrap justify-between"></div>
         </div>

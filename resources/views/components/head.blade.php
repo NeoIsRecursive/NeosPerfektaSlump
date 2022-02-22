@@ -12,7 +12,7 @@
 <body>
     <nav class="w-full bg-white z-10 flex md:flex-row flex-col md:items-center justify-between relative pt-1 px-4">
         <div class="flex justify-between items-center">
-            <h1 class="p-2 text-xl font-mono">Neos perfekta slump</h1>
+            <h1 class="p-2 text-2xl font-mono font-bold">Neos perfekta slump</h1>
             <button id="navopen" class="button md:hidden z-100">=</button>
         </div>
         <div class="hidden z-0 md:flex md:flex-row flex-col gap-4 p-2 text-center absolute top-12 left-0 h-screen w-screen md:h-fit md:w-fit bg-white md:static" >

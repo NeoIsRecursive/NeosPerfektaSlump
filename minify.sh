@@ -1,27 +1,40 @@
 #!/bin/bash
 
-echo "minifying js"
-rm -rf $(pwd)/public/scripts/min/*
+#minify/uglify your javascript and replace imports with minified variants.
+#REQUIRES uglify-js
+#Made by Neo Lejondahl
 
-#uglify all files in the script dir
-for entry in $(pwd)/public/scripts/*.js
-do
-    newName=$(basename $entry | sed 's/.js/.min.js/')
-    rm -f $temp
-    echo "Minifying $(basename $entry) to $newName"
-    uglifyjs $entry --compress --mangle --output $(pwd)/public/scripts/min/$newName
-done
+function main () {
+    #paths
+    scriptDir=$(pwd)/public/scripts/*.js
+    minifiedDir=$(pwd)/public/scripts/min/
 
+    rm -rf $minifiedDir*
 
-#replace imports to the new minified
-for entry in $(pwd)/public/scripts/*.js
+    #uglify all files in the script dir
+    for entry in $scriptDir
     do
-        name="$(basename $entry | sed "s/.js/.min.js/")"
-        for item in $(pwd)/public/scripts/min/*.js
-        do
-            sed -i.bak "s/$(basename $entry)/$name/" $item
-            rm -f $item.bak
+        newName=$(basename $entry | sed 's/.js/.min.js/')
+        rm -f $temp
+        echo "Minifying $(basename $entry) to $newName"
+        uglifyjs $entry --compress --mangle --output $minifiedDir/$newName
     done
-done
 
-echo minified
+
+    #replace imports to the new minified
+    for entry in $scriptDir
+        do
+            name="$(basename $entry | sed "s/.js/.min.js/")"
+            for item in $minifiedDir*.js
+            do
+                sed -i.bak "s/$(basename $entry)/$name/" $item
+                rm -f $item.bak
+        done
+    done
+
+}
+
+
+
+echo "Minified in:"
+time main
