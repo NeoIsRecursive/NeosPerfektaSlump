@@ -17,9 +17,14 @@ class CreateGroupController extends Controller
     {
         //
         $validated = $request->validate([
-            'list' => ['required', 'mimes:txt,csv'],
-            'name' => ['nullable', 'string', 'max:50']
+            'list' => ['nullable', 'mimes:txt,csv'],
+            'name' => ['required_without:list', 'nullable', 'string', 'max:50']
         ]);
+
+        if (!array_key_exists('list', $validated)) {
+            $insert = Auth::user()->groups()->create(['group_name' => $validated['name']]);
+            return redirect('manager');
+        }
 
         $name = isset($validated['name']) ? $validated['name'] : $validated['list']->getClientOriginalName();
 
