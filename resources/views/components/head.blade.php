@@ -10,12 +10,16 @@
 </head>
 
 <body>
-    <nav class="w-full bg-white z-10 flex md:flex-row flex-col md:items-center justify-between relative pt-1 px-4">
+    <nav class="w-full bg-white z-10 flex md:flex-row flex-col md:items-center relative justify-between pt-1 px-4">
         <div class="flex justify-between items-center">
             <h1 class="p-2 text-2xl font-mono font-bold">Neos perfekta slump</h1>
-            <button id="navopen" class="button md:hidden z-100">=</button>
+            <button id="navopen" class="flex flex-col gap-1 md:hidden z-100 w-10 transition">
+                <div class="w-full h-2 bg-black rounded-md transition"></div>
+                <div class="w-full h-2 bg-black rounded-md transition"></div>
+                <div class="w-full h-2 bg-black rounded-md transition"></div>
+            </button>
         </div>
-        <div class="hidden z-0 md:flex md:flex-row flex-col gap-4 p-2 text-center absolute top-12 left-0 h-screen w-screen md:h-fit md:w-fit bg-white md:static" >
+        <div id="menu" class="absolute z-100 flex md:flex-row flex-col gap-4 p-2 text-center -left-full md:left-0 md:static top-full w-screen md:w-fit bg-white transition-all" >
             <a href="/slump" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('slump*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Slump</a>
             @auth
             <a href="/manager" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('manager*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Manager</a>
@@ -25,10 +29,22 @@
             @endauth
         </div>
         <script>
-            document.getElementById('navopen').addEventListener('click', () => {
-                const node = document.querySelector('nav div:last-of-type');
-                node.classList.toggle('flex');
-                node.classList.toggle('hidden');
+            document.getElementById('navopen').addEventListener('click', (x) => {
+                const node = document.getElementById('menu');
+                node.classList.toggle('-left-full');
+                node.classList.toggle('left-0');
+
+                x.currentTarget.querySelector('div:first-child').classList.toggle('rotate-45')
+                x.currentTarget.querySelector('div:first-child').classList.toggle('translate-y-3')
+                x.currentTarget.querySelector('div:first-child').classList.toggle('bg-red-500')
+
+                x.currentTarget.querySelector('div:nth-of-type(2)').classList.toggle('w-0')
+                // x.currentTarget.querySelector('div:nth-of-type(2)').classList.toggle('opacity-0')
+
+                x.currentTarget.querySelector('div:last-child').classList.toggle('-rotate-45')
+                x.currentTarget.querySelector('div:last-child').classList.toggle('-translate-y-3')
+                x.currentTarget.querySelector('div:last-child').classList.toggle('bg-red-500')
+
             });
         </script>
     </nav>
