@@ -1,3 +1,4 @@
+/public/build
 /node_modules
 /public/hot
 /public/storage
@@ -13,7 +14,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-/public/css/*
+/resources/css/style.css
 _ide_helper.php
 _ide_helper_models.php
 .php-cs-fixer.cache

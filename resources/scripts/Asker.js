@@ -25,8 +25,10 @@ export default class Asker {
 
 	//Gives a background color to the id of taken student, used for both setting and removing
 	updateList(idNumber){
-		document.getElementById(idNumber).classList.toggle("bg-slate-400");
-        document.getElementById(idNumber).classList.toggle("text-white");
+        const node = document.getElementById(idNumber);
+        node.classList.toggle("bg-white");
+		node.classList.toggle("bg-slate-400");
+        node.classList.toggle("text-white");
 	}
 
 	//removes background color from each student

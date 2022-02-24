@@ -1,5 +1,5 @@
     @include('components.head')
-    <script type="module" src="{{ asset('scripts/min/index.min.js') }}"></script>
+    {{-- <script type="module" src="{{ asset('scripts/min/index.min.js') }}"></script> --}}
 
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
@@ -45,8 +45,6 @@
         </div>
 
     </div>
-
-    <script src="{{ asset('scripts/tw-elements/index.min.js') }}"></script>
 </body>
 
 </html>
