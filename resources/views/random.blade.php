@@ -1,5 +1,4 @@
     @include('components.head')
-    {{-- <script type="module" src="{{ asset('scripts/min/index.min.js') }}"></script> --}}
 
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
@@ -8,7 +7,7 @@
             @include('components.user-files-app')
             @endauth
             <label for="file" class="form-label font-bold" id="file2" tabindex="0">choose CSV file:</label>
-            <input type="file" id="file" name="file" onchange="asker.readCsv(this)" class="form-control input">
+            <input type="file" id="file" name="file" onchange="asker.readCsv(this)" class="file: form-control input">
             <label for="addName">Add temporary name to the list:</label>
             <div class="max-w-full flex gap-2">
                 <input type="text" value="" placeholder="name" id="addName" class="input w-full">

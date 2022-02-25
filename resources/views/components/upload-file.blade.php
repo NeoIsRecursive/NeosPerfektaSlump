@@ -14,7 +14,6 @@
         <button class="bg-gray-800 text-white w-max mx-auto px-12 py-2 rounded-lg drop-shadow hover:drop-shadow-lg hover:bg-fuchsia-500 transition">upload</button>
     </form>
 
-    <script src="{{ asset('scripts/tw-elements/index.min.js') }}"></script>
     <script>
 
         document.getElementById('file').addEventListener('change', (event) => {
