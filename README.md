@@ -1,13 +1,13 @@
 # NeosPerfektaSlump 2.0
 
 <img src="misc/demoCompressed.gif">
+image of 1.0
 
-[Try it here!](https://neosperfektaslump.neo.fyi)
-**This site saves nothing about you or your files, everything is computed locally in YOUR browser.**
+[Try it here!](https://neosperfektaslump.neo.fyi) not active yet
 
-## WIP
+**this site saves nothing about you or your files, everything is computed locally in YOUR browser.**
 
-this version will have account and uploadable files!
+**or well, it saves what you upload obviously (if you have an account if not, nothing)**
 
 ## about
 
@@ -22,18 +22,15 @@ It was made as a gymnasiearbete project and has some neat features.
     2. Copy all groups.
     3. Copy individual groups.
 * Reading files.
-* Creating a user.
-* Uploading list files to database.
-* Getting files from a database.
+* Upload files.
+* Get uploaded files.
 
 As you can see in the code it is currently limited to .csv files since they are always formated
 the same.
 
 TODO
-- [ ] make responsive
-- [ ] make change between input types more clear
+- [x] make responsive
 - [ ] make so copy to clipboard tells user it copied 
-- [ ] change placement of input changer
 - [ ] new icon/logo for the project?
 
 ### do
