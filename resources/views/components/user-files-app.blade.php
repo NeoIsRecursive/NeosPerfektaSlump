@@ -1,14 +1,14 @@
-<div>
+<div class="flex flex-col gap-2">
     @if(count($lists) < 1)
         <p class="mb-4 font-bold">No groups found, add a new one in the <a href="/manager" class="hover:underline text-sky-400">Manager</a>?</p>
     @else
-    <p class="mb-4 font-bold">your groups:</p>
-    <div class="flex gap-4 flex-wrap">
+    <label class="font-bold whitespace-nowrap">Your groups:</label>
+    <select class="input w-full text-ellipsis">
         @foreach($lists as $list)
-            <button class="button" onclick="getGroup({{ $list->id }})">
+            <option value={{ $list->id }}>
                 {{ $list->group_name }}
-            </button>
+            </option>
         @endforeach
-    </div>
+    </select>
     @endif
 </div>

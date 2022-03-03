@@ -7,7 +7,9 @@
             @include('components.user-files-app')
             @endauth
             <label for="file" class="form-label font-bold" id="file2" tabindex="0">choose CSV file:</label>
-            <input type="file" id="file" name="file" onchange="asker.readCsv(this)" class="file: form-control input">
+            <div class="upload-wrapper">
+                <input type="file" id="file" name="file" onchange="asker.readCsv(this)" class="upload hover:file:bg-fuchsia-500 hover:file:text-white file:focus:bg-fuchsia-500 file:focus:text-white">
+            </div>
             <label for="addName">Add temporary name to the list:</label>
             <div class="max-w-full flex gap-2">
                 <input type="text" value="" placeholder="name" id="addName" class="input w-full">
