@@ -10,7 +10,3 @@ window.grouper = new Grouper();
 document.getElementById("addName").addEventListener("keyup", (x) => {
     if (x.key == "Enter") asker.addFromInput();
 });
-
-document.querySelector("select").addEventListener("change", (x) => {
-    getGroup(x.target.value);
-});

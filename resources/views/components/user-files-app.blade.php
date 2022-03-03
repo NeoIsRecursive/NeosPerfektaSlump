@@ -4,6 +4,9 @@
     @else
     <label class="font-bold whitespace-nowrap">Your groups:</label>
     <select class="input w-full text-ellipsis">
+        <option value="none">
+            none
+        </option>
         @foreach($lists as $list)
             <option value={{ $list->id }}>
                 {{ $list->group_name }}
@@ -12,3 +15,10 @@
     </select>
     @endif
 </div>
+<script>
+    document.querySelector("select").addEventListener("change", (x) => {
+        if(x.target.value != 'none')
+            return getGroup(x.target.value)
+        asker.changeList([]);
+    });
+</script>

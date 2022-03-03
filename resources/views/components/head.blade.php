@@ -13,6 +13,7 @@
     @else
     @tag('css')
     @endif
+    <link rel="icon" type="image/png" href="{{ vite_asset('resources/images/favicon.ico') }}">
 </head>
 
 <body>
