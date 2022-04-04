@@ -3,7 +3,7 @@
 <img src="misc/demoCompressed.gif">
 image of 1.0
 
-[Try it here!](https://neosperfektaslump.neo.fyi) not active yet
+[Try it here!](https://neoishere.com)
 
 **this site saves nothing about you or your files, everything is computed locally in YOUR browser.**
 
@@ -33,7 +33,7 @@ TODO
 - [ ] make so copy to clipboard tells user it copied 
 - [ ] new icon/logo for the project?
 
-### do
+### maybe
 
 groups should also be fair, possible by computing all possible unique group combos and choosing one at random, like the answeree is computed?
 answered should sustain so maybe localstorage, yeah probarbly.
