@@ -1,6 +1,11 @@
 @include('components.head')
-<div class="bg-white p-4 z-20">
-    <h2 class="text-lg"><span class="font-semibold">Group manager:</span> you are currently managing "{{ $group->group_name }}"</h2>
+<div class="bg-white p-4 z-20 flex justify-between">
+    <h2 class="text-lg"><a class="font-semibold" href="/manager">Group manager/</a>{{ $group->group_name }}</h2>
+    <form action="/manager/groups/{{ $group->id }}" method="post">
+        @method('delete')
+        @csrf
+        <button class="hover:bg-red-500 hover:text-white px-4 py-2 rounded transition-colors">Delete Group</button>
+    </form>
 </div>
 <main class="grid grid-cols-1 lg:w-1/2 mx-auto my-4">
     <div class="flex flex-col gap-1 drop-shadow-md bg-white rounded-lg px-10 lg:px-20 mx-4 py-2">

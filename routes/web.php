@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\CreateGroupController;
+use App\Http\Controllers\DeleteGroupController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\GetGroupController;
 use App\Http\Controllers\GetGroupJsonController;
@@ -34,7 +35,9 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('manager', ManagerController::class);
     Route::get('logout', LogoutController::class)->name('logout');
+
     Route::get('getGroupApi', GetGroupJsonController::class);
+
     Route::post('manager/add-group', CreateGroupController::class);
     Route::get('manager/groups/{group}/manage', GetGroupController::class);
     Route::patch('manager/groups/{group}/manage/add-member', AddMemberController::class);
@@ -42,4 +45,5 @@ Route::middleware(['auth'])->group(function () {
         'manager/groups/{group}/manage/remove-member/{member}',
         RemoveMemberController::class
     )->scopeBindings();
+    Route::delete('manager/groups/{group}', DeleteGroupController::class);
 });
