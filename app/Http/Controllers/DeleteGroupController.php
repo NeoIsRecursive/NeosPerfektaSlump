@@ -7,7 +7,6 @@ use Auth;
 
 class DeleteGroupController extends Controller
 {
-
     public function __invoke(Group $group)
     {
         //
