@@ -20,3 +20,4 @@ _ide_helper_models.php
 .php-cs-fixer.cache
 /public/build
 **/*.DS_Store
+nginx
