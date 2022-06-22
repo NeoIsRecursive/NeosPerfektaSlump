@@ -1,5 +1,11 @@
     @include('components.head')
 
+    @if(session()->get('newLogin'))
+
+        <p class="text-center font-bold">Welcome back {{ auth()->user()->name }}</p>
+
+    @endif
+
     <div class="p-2 w-full bg-white grid grid-cols-1 xl:grid-cols-3 gap-4 mt-2">
 
         <div class="flex flex-col py-4 px-10 gap-2 bg-white drop-shadow rounded-lg h-fit">

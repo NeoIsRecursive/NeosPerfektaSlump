@@ -3,7 +3,7 @@
 <img src="misc/demoCompressed.gif">
 image of 1.0
 
-[Try it here!](https://neosperfektaslump.neo.fyi) not active yet
+[Try it here!](https://www.neoishere.com)
 
 **this site saves nothing about you or your files, everything is computed locally in YOUR browser.**
 

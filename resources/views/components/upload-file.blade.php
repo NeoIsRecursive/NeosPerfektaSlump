@@ -1,6 +1,6 @@
 <div class="drop-shadow-lg bg-white p-4 rounded">
 
-    <h2 class="font-bold text-lg mb-4">Upload new group</h2>
+    <h2 class="font-bold text-lg mb-4">Create a new group</h2>
 
     @include('components.error')
 
@@ -12,7 +12,7 @@
         </div>
         <label for="name">Name the group:</label>
         <input type="text" name="name" id="name" class="input">
-        <button class="bg-gray-800 text-white w-max mx-auto px-12 py-2 rounded-lg drop-shadow hover:drop-shadow-lg hover:bg-fuchsia-500 transition">upload</button>
+        <button class="bg-gray-800 text-white w-max mx-auto px-12 py-2 rounded-lg drop-shadow hover:drop-shadow-lg hover:bg-fuchsia-500 transition">Create!</button>
     </form>
     <script>
         document.getElementById('file').addEventListener('change', (event) => {

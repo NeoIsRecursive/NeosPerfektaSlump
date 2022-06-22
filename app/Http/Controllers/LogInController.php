@@ -22,7 +22,7 @@ class LogInController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('slump');
+            return redirect('slump')->with('newLogin', true);
         }
 
         return back()->withErrors([
