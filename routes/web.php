@@ -10,6 +10,7 @@ use App\Http\Controllers\LogInController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Member\AddMemberController;
 use App\Http\Controllers\Member\RemoveMemberController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::middleware(['guest'])->group(function () {
     Route::view('/', 'index');
     Route::view('login', 'login')->name('login');
     Route::post('login', LogInController::class);
+    Route::view('register', 'register');
+    Route::post('register', RegisterController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
