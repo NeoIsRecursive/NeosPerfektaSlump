@@ -7,12 +7,10 @@
     {{-- <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    @client
-    @if(request()->is('slump'))
-    @vite
-    @else
-    @tag('css')
-    @endif
+    @vite([
+    'resources/css/tailwind.css',
+    'resources/scripts/main.js',
+    ])
     <link rel="icon" type="image/png" href="favicon.ico">
 </head>
 
@@ -26,7 +24,7 @@
                 <div class="w-full h-2 bg-black rounded-md transition"></div>
             </button>
         </div>
-        <div id="menu" class="absolute z-100 flex md:flex-row flex-col gap-4 p-2 text-center -left-full md:left-0 md:static top-full w-screen md:w-fit bg-white transition-all" >
+        <div id="menu" class="absolute z-100 flex md:flex-row flex-col gap-4 p-2 text-center -left-full md:left-0 md:static top-full w-screen md:w-fit bg-white transition-all">
             <a href="/slump" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('slump*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Slump</a>
             @auth
             <a href="/manager" class="text-lg p-2 px-6 bg-white rounded-lg {{ (request()->is('manager*')) ? 'drop-shadow-md' : '' }} hover:drop-shadow-lg hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none transition-all">Manager</a>
