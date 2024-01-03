@@ -39,8 +39,6 @@ class CreateGroupController extends Controller
             }
         }
 
-        //dd($insertItems);
-
         $insert = Auth::user()->groups()->create(['group_name' => $name]);
         $insert->members()->createMany($insertItems);
 

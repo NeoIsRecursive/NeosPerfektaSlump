@@ -18,6 +18,8 @@ class AppController extends Controller
             return view('random');
         }
 
-        return view('random')->with(['lists' => Auth::user()->groups()->get(['group_name', 'id'])]);
+        return view('random', [
+            'lists' => Auth::user()->groups()->get(['group_name', 'id'])
+        ]);
     }
 }
