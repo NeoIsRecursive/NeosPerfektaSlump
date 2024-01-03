@@ -1,5 +1,8 @@
-export default class Grouper {
-    //skapar grupperna
+export class Grouper {
+    /**
+     * Creates groups from the students in asker.students
+     * @param {number} x - number of groups
+     */
     createGroups(x) {
         if (x <= 0) {
             alert("Do you really need 0 groups?");
@@ -11,19 +14,20 @@ export default class Grouper {
             alert("try fewer groups");
             return;
         }
-        var groups = [];
-        var noGroup = [...asker.students];
-        var antal = Math.floor(asker.students.length / x);
-        var iGrupp = 0;
+        const groups = [];
+        const noGroup = [...asker.students];
+        const antal = Math.floor(asker.students.length / x);
+        let iGrupp = 0;
 
-        for (var i = 0; i < x; i++) {
+        for (let i = 0; i < x; i++) {
             groups.push([]);
             groups[i].length = antal;
             iGrupp += antal;
         }
         let raNum;
+
         for (i = 0; i < x; i++) {
-            for (var y = 0; y < groups[i].length; y++) {
+            for (let y = 0; y < groups[i].length; y++) {
                 raNum = randFloor(noGroup.length);
                 groups[i][y] = noGroup[raNum][0];
                 noGroup.splice(raNum, 1);
@@ -32,6 +36,7 @@ export default class Grouper {
 
         if (noGroup.length > 0) {
             let kvar = noGroup.length;
+
             while (noGroup.length > 0) {
                 for (i = 0; i < kvar; i++) {
                     raNum = randFloor(noGroup.length);
@@ -40,9 +45,14 @@ export default class Grouper {
                 }
             }
         }
+
         this.drawGroups(groups);
     }
 
+    /**
+     * Draws the groups in the DOM
+     * @param {Array} groups - the groups to draw
+     */
     drawGroups(groups) {
         let count = 0;
         let content = document.getElementById("groups");

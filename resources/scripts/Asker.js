@@ -1,28 +1,42 @@
-export default class Asker {
+export class Asker {
     students = [];
     notTaken = [];
 
+    /**
+     * @returns {Array} - returns the students array
+     */
     slump() {
         if (this.students[0] == undefined) return alert("no students");
-        var number = randFloor(this.notTaken.length);
-        document.getElementById("svara").innerHTML = this.notTaken[number][0];
-        this.updateList([this.notTaken[number][1]]);
-        this.notTaken.splice(number, 1);
+        const index = randFloor(this.notTaken.length);
+
+        document.getElementById("svara").innerHTML = this.notTaken[index][0];
+
+        this.updateList([this.notTaken[index][1]]);
+
+        const selected = this.notTaken.splice(index, 1);
+
         if (this.notTaken.length <= 0) {
             this.notTaken = [...this.students];
             this.resetList();
         }
+
+        return selected;
     }
 
-    //loops through, is only set when a file is loaded
+    /**
+     * Draws the students in the DOM
+     */
     drawList() {
         document.getElementById("students").innerHTML = "";
         this.students.forEach((student) => {
-            this.drawStudentInList(student[0], student[1]);
+            this.renderStudentItem(student[0], student[1]);
         });
     }
 
-    //Gives a background color to the id of taken student, used for both setting and removing
+    /**
+     * Gives a background color to the id of taken student, used for both setting and removing
+     * @param {number} idNumber
+     */
     updateList(idNumber) {
         const node = document.getElementById(idNumber);
         node.classList.toggle("bg-white");
@@ -30,14 +44,21 @@ export default class Asker {
         node.classList.toggle("text-white");
     }
 
-    //removes background color from each student
+    /**
+     * Removes background color from each student
+     */
     resetList() {
         this.students.forEach((student) => {
             this.updateList(student[1]);
         });
     }
 
-    drawStudentInList(name, idNum) {
+    /**
+     * Renders a student item in the DOM
+     * @param {string} name - name of student
+     * @param {number} idNum - id of student
+     */
+    renderStudentItem(name, idNum) {
         document.getElementById("students").innerHTML +=
             "<li id=" +
             idNum +
@@ -46,12 +67,16 @@ export default class Asker {
             "</li>";
     }
 
+    /**
+     * Adds a student from input
+     */
     addFromInput() {
-        let name = document.getElementById("addName").value;
-        if (name == "") {
+        const name = document.getElementById("addName").value;
+        if (!name) {
             alert("you must type in a name");
             return;
         }
+
         let index;
         if (this.students.length < 1) {
             index = 0;
@@ -60,15 +85,24 @@ export default class Asker {
         }
         this.notTaken.push([name, index]);
         this.students.push([name, index]);
-        this.drawStudentInList(name, index);
+
+        this.renderStudentItem(name, index);
+
         document.getElementById("addName").value = "";
     }
 
+    /**
+     * Checks the file is a csv
+     */
     check(file) {
         const splitFile = file.split(".");
         return splitFile[splitFile.length - 1] == "csv";
     }
 
+    /**
+     * Change the list of items to a different one
+     * @param {Array} x - the new list
+     */
     changeList(x) {
         this.students = x;
         this.notTaken = [...this.students];
@@ -77,6 +111,9 @@ export default class Asker {
         if (x.length !== 0) this.drawList();
     }
 
+    /**
+     * Reads a csv file and split it by rows and replace the current list with the new one
+     */
     readCsv(file, cols = null) {
         let isCsv = this.check(file.files[0].name);
         if (!isCsv) {
