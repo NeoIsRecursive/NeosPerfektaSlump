@@ -1,16 +1,17 @@
-name: Lint
-
-on: [push, pull_request]
-
+name: PHP Linting (Pint)
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - "dependabot/npm_and_yarn/*"
 jobs:
-  run:
+  phplint:
     runs-on: ubuntu-latest
-
-    name: PSR-12
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v3
+      - name: "laravel-pint"
+        uses: aglipanci/laravel-pint-action@2.0.0
         with:
-          php-version: 8.2
-      - run: ./vendor/bin/pint
+          verboseMode: true
+          configPath: "/pint.json"
+          pintVersion: 1.10.0
