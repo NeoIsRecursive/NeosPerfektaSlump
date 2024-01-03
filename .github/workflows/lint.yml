@@ -12,6 +12,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
-          tools: phpcs
-      - run: phpcs --standard=PSR12 --colors -n app
+          php-version: 8.2
+      - run: ./vendor/bin/pint
