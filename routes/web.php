@@ -3,11 +3,11 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\CreateGroupController;
 use App\Http\Controllers\DeleteGroupController;
-use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\GetGroupController;
 use App\Http\Controllers\GetGroupJsonController;
 use App\Http\Controllers\LogInController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\Member\AddMemberController;
 use App\Http\Controllers\Member\RemoveMemberController;
 use App\Http\Controllers\RegisterController;

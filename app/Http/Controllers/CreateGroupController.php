@@ -10,7 +10,6 @@ class CreateGroupController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -18,11 +17,12 @@ class CreateGroupController extends Controller
         //
         $validated = $request->validate([
             'list' => ['nullable', 'mimes:txt,csv'],
-            'name' => ['required_without:list', 'nullable', 'string', 'max:50']
+            'name' => ['required_without:list', 'nullable', 'string', 'max:50'],
         ]);
 
         if (!array_key_exists('list', $validated)) {
             $insert = Auth::user()->groups()->create(['group_name' => $validated['name']]);
+
             return redirect('manager');
         }
 

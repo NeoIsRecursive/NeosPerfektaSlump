@@ -10,7 +10,6 @@ class GetGroupJsonController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -22,6 +21,7 @@ class GetGroupJsonController extends Controller
         $group = Auth::user()->members()->where('group_id', $id)->get(['member_name', 'members.id as id']);
         $names = $group->pluck('member_name');
         $ids = $group->pluck('id');
+
         return response($names->zip($ids))->header('Content-Type', 'text/json');
     }
 }

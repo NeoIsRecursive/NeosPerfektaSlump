@@ -3,16 +3,12 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Auth;
 use Hash;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class GroupTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_manager_view()
@@ -20,10 +16,8 @@ class GroupTest extends TestCase
         $user = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
-
-
 
         $response = $this->actingAs($user)->get('manager');
 
@@ -35,13 +29,13 @@ class GroupTest extends TestCase
         $user = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
         $group = $user->groups()->create(['group_name' => 'test']);
 
         $this->actingAs($user)
-            ->get('manager/groups/' . $group->id . '/manage')
+            ->get('manager/groups/'.$group->id.'/manage')
             ->assertSeeText($group->group_name);
     }
 
@@ -50,15 +44,15 @@ class GroupTest extends TestCase
         $user = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
-        $filePath = __DIR__ . '/../../misc/example.csv';
+        $filePath = __DIR__.'/../../misc/example.csv';
         $arrToGetFilename = explode('/', $filePath);
         $fileName = end($arrToGetFilename);
         $content = file_get_contents($filePath);
         $numberOfMembers = count(array_filter(explode("\n", $content), function ($x) {
-            return $x !== "";
+            return $x !== '';
         }));
 
         $this->actingAs($user)
@@ -73,7 +67,7 @@ class GroupTest extends TestCase
 
     public function test_create_group_with_file_as_guest_user()
     {
-        $filePath = __DIR__ . '/../../misc/hej.txt';
+        $filePath = __DIR__.'/../../misc/hej.txt';
         $arrToGetFilename = explode('/', $filePath);
         $fileName = end($arrToGetFilename);
 
@@ -90,15 +84,15 @@ class GroupTest extends TestCase
         $user = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
-        $filePath = __DIR__ . '/../../misc/example.csv';
+        $filePath = __DIR__.'/../../misc/example.csv';
         $arrToGetFilename = explode('/', $filePath);
         $fileName = end($arrToGetFilename);
         $content = file_get_contents($filePath);
         $numberOfMembers = count(array_filter(explode("\n", $content), function ($x) {
-            return $x !== "";
+            return $x !== '';
         }));
 
         $this->actingAs($user)
@@ -120,21 +114,21 @@ class GroupTest extends TestCase
         $userWhoUploadedList = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
         $wrongUser = User::create([
             'name' => 'wrong',
             'email' => 'wrong@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
-        $filePath = __DIR__ . '/../../misc/example.csv';
+        $filePath = __DIR__.'/../../misc/example.csv';
         $arrToGetFilename = explode('/', $filePath);
         $fileName = end($arrToGetFilename);
         $content = file_get_contents($filePath);
         $numberOfMembers = count(array_filter(explode("\n", $content), function ($x) {
-            return $x !== "";
+            return $x !== '';
         }));
 
         $this->actingAs($userWhoUploadedList)

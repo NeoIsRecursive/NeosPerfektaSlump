@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Member;
 
-use App\Models\Member;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
+use App\Models\Member;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RemoveMemberController extends Controller
@@ -20,6 +20,7 @@ class RemoveMemberController extends Controller
     {
         if (Auth::id() === $group->user_id) {
             $member->delete();
+
             return back();
         }
         abort(404);

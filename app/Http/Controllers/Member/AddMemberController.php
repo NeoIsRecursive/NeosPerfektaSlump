@@ -12,7 +12,6 @@ class AddMemberController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Group $group, Request $request)
@@ -20,6 +19,7 @@ class AddMemberController extends Controller
         if (Auth::id() === $group->user_id) {
             $request->validate(['new-member-name' => ['required', 'string']]);
             $group->members()->create(['member_name' => $request->input('new-member-name')]);
+
             return back();
         }
 

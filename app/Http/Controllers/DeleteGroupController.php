@@ -13,7 +13,8 @@ class DeleteGroupController extends Controller
         if (Auth::id() === $group->user_id) {
             $members = $group->members()->delete();
             $group->delete();
-            $deletedStr = 'Deleted group "' . $group->group_name . '" along with its ' . $members . ' members';
+            $deletedStr = 'Deleted group "'.$group->group_name.'" along with its '.$members.' members';
+
             return redirect('manager')->with('deleted', $deletedStr);
         }
         abort(403);

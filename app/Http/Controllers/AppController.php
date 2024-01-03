@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
@@ -18,6 +17,7 @@ class AppController extends Controller
         if (!Auth::user()) {
             return view('random');
         }
+
         return view('random')->with(['lists' => Auth::user()->groups()->get(['group_name', 'id'])]);
     }
 }

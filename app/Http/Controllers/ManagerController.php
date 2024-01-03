@@ -15,6 +15,7 @@ class ManagerController extends Controller
     public function __invoke()
     {
         $groups = Auth::user()->groups()->get(['group_name', 'id']);
+
         return view('manager')->with(['lists' => $groups]);
     }
 }

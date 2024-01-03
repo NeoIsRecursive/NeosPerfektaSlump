@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-
     public function __invoke(Request $request)
     {
         $request->validate([
@@ -21,7 +20,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password'))
+            'password' => Hash::make($request->input('password')),
         ]);
 
         Auth::loginUsingId($user->id);

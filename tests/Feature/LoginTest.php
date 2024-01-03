@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\User;
 use Hash;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
@@ -22,7 +21,7 @@ class LoginTest extends TestCase
         $user = User::create([
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => Hash::make('123')
+            'password' => Hash::make('123'),
         ]);
 
         $response = $this
@@ -39,7 +38,6 @@ class LoginTest extends TestCase
             ->post('login', ['email' => 'test@gmail.com']);
         $response->assertSeeText('The password field is required.');
     }
-
 
     public function test_login_user_without_email()
     {
