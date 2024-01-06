@@ -1,9 +1,11 @@
 import { RootRoute, Route, Router } from "@tanstack/react-router";
-import { Root } from "@/views/Root";
-import { Home } from "@/views/Home";
-import { About } from "@/views/About";
+import { Root } from "@/routes/Root";
+import { Home } from "@/routes/Home";
+import { About } from "@/routes/About";
+import { Groups } from "./routes/Groups";
+import { Group } from "./routes/Group";
 
-const rootRoute = new RootRoute({
+export const rootRoute = new RootRoute({
   component: Root,
 });
 
@@ -19,7 +21,24 @@ const aboutRoute = new Route({
   component: About,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute]);
+const groupsRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/groups",
+  component: Groups,
+});
+
+const groupRoute = new Route({
+  getParentRoute: () => groupsRoute,
+  path: "$id",
+  component: Group,
+});
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  aboutRoute,
+  groupsRoute,
+  groupRoute,
+]);
 
 export const router = new Router({ routeTree });
 

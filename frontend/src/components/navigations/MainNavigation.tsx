@@ -7,10 +7,12 @@ const navLink = tv({
 
 export const MainNavigation = () => (
   <nav className="flex items-center justify-between p-4 max-w-7xl mx-auto">
-    <h1 className="text-xl font-bold font-mono">Slump</h1>
+    <Link to="/">
+      <h1 className="text-xl font-bold font-mono">Slump</h1>
+    </Link>
 
     <div className="flex gap-4">
-      <Link className={navLink()} to="/">
+      <Link className={navLink()} to="/groups">
         Groups
       </Link>
       <Link className={navLink()} to="/about">
