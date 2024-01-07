@@ -1,5 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { supabase } from "../supabase";
+import { queryClient } from "../queryClient";
+import { groupsOptions } from "./options";
 
 export const useStoreGroup = () =>
   useMutation({
@@ -14,5 +16,8 @@ export const useStoreGroup = () =>
     },
     onError: (error) => {
       alert(error.message);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(groupsOptions());
     },
   });

@@ -4,12 +4,24 @@ import { useState } from "react";
 import { useGroups } from "@/api/groups/queries";
 
 export const GroupNavigation = () => {
+  /**
+   * Search query
+   */
   const [search, setSearch] = useState("");
+
+  /**
+   * Groups query
+   */
   const { data: groups, ...groupsQuery } = useGroups();
 
   return (
     <nav className="flex flex-col gap-2">
-      <Input label="Search" id="search" value={search} onChange={setSearch} />
+      <Input
+        label="Search"
+        id="search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       {groupsQuery.isLoading ? <p>Loading...</p> : null}
 
@@ -29,6 +41,7 @@ export const GroupNavigation = () => {
       ) : (
         <p>No groups yet</p>
       )}
+      <Link to="/groups/new">Create new group</Link>
     </nav>
   );
 };
