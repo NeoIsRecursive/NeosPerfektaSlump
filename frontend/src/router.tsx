@@ -2,11 +2,11 @@ import { About } from "@/routes/About";
 import { Home } from "@/routes/Home";
 import { Root } from "@/routes/Root";
 import { Route, Router, rootRouteWithContext } from "@tanstack/react-router";
-import { Group } from "./routes/Group";
+import { View } from "./routes/groups/View";
 import { Groups } from "./routes/Groups";
 import { QueryClient } from "@tanstack/react-query";
 import { queryClient } from "./api/queryClient";
-import { groupsOptions } from "./api/groups/options";
+import { groupOptions, groupsOptions } from "./api/groups/options";
 import { membersOptions } from "./api/members/options";
 import { Create } from "./routes/groups/Create";
 
@@ -47,11 +47,14 @@ const createGroupRoute = new Route({
 
 const groupRoute = new Route({
   loader: async ({ context: { queryClient }, params: { id } }) => {
-    await queryClient.ensureQueryData(membersOptions(id));
+    await Promise.all([
+      queryClient.ensureQueryData(membersOptions(id)),
+      queryClient.ensureQueryData(groupOptions(id)),
+    ]);
   },
   getParentRoute: () => groupsRoute,
   path: "$id",
-  component: Group,
+  component: View,
 });
 
 const routeTree = rootRoute.addChildren([

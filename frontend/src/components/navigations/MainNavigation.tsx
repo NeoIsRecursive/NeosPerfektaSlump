@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { tv } from "tailwind-variants";
 
 const navLink = tv({
-  base: "py-2 px-4 font-mono bg-white rounded shadow data-[status=active]:bg-gray-200 transition-colors",
+  base: "py-2 px-4 bg-white rounded shadow data-[status=active]:bg-gray-200 transition-colors",
 });
 
 export const MainNavigation = () => {
@@ -12,7 +12,7 @@ export const MainNavigation = () => {
   return (
     <nav className="flex items-center justify-between p-4 max-w-7xl mx-auto">
       <Link to="/">
-        <h1 className="text-xl font-bold font-mono">Slump</h1>
+        <h1 className="text-xl font-bold">Slump</h1>
       </Link>
 
       <div className="flex gap-4">

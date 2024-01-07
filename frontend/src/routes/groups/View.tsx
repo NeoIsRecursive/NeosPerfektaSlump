@@ -2,7 +2,7 @@ import { useGroup } from "@/api/groups/queries";
 import { useMembers } from "@/api/members/queries";
 import { useParams } from "@tanstack/react-router";
 
-export const Group = () => {
+export const View = () => {
   const { id } = useParams({ from: "/groups/$id" });
 
   const { data: group, ...groupQuery } = useGroup(id);
@@ -14,7 +14,7 @@ export const Group = () => {
         <p>Loading...</p>
       ) : null}
 
-      <h1>{group?.name}</h1>
+      <h1 className="text-xl font-bold mb-2">{group?.name}</h1>
       {members ? (
         <ul>
           {members.map((member) => (
