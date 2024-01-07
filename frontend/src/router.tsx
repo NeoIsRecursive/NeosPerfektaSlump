@@ -4,6 +4,8 @@ import { Home } from "@/routes/Home";
 import { About } from "@/routes/About";
 import { Groups } from "./routes/Groups";
 import { Group } from "./routes/Group";
+import { Login } from "./routes/auth/Login";
+import { Register } from "./routes/auth/Register";
 
 export const rootRoute = new RootRoute({
   component: Root,
@@ -13,6 +15,18 @@ const indexRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/",
   component: Home,
+});
+
+const registerRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/register",
+  component: Register,
+});
+
+const loginRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/login",
+  component: Login,
 });
 
 const aboutRoute = new Route({
@@ -35,6 +49,8 @@ const groupRoute = new Route({
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
+  registerRoute,
+  loginRoute,
   aboutRoute,
   groupsRoute,
   groupRoute,
