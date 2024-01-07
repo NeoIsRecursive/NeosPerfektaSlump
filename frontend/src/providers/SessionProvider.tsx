@@ -65,11 +65,15 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
       {session ? (
         children
       ) : (
-        <Auth
-          supabaseClient={supabase}
-          providers={[]}
-          appearance={{ theme: ThemeSupa }}
-        />
+        <div className="max-w-4xl mx-auto mt-8">
+          <h1 className="text-2xl font-bold mb-4">Slump</h1>
+          <Auth
+            supabaseClient={supabase}
+            providers={[]}
+            theme="default"
+            appearance={{ theme: ThemeSupa }}
+          />
+        </div>
       )}
     </SessionContext.Provider>
   );
