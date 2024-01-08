@@ -1,5 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { supabase } from "../supabase";
+import { queryClient } from "../queryClient";
+import { membersOptions } from "./options";
 
 export const useStoreMember = () =>
   useMutation({
@@ -11,5 +13,8 @@ export const useStoreMember = () =>
       }
 
       return data;
+    },
+    onSuccess: (_, { group_id }) => {
+      queryClient.invalidateQueries(membersOptions(group_id));
     },
   });
