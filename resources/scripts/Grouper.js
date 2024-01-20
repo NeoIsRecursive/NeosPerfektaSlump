@@ -14,36 +14,17 @@ export class Grouper {
             alert("try fewer groups");
             return;
         }
-        const groups = [];
+
+        const groups = Array.from({ length: x }, () => []);
         const noGroup = [...asker.students];
-        const antal = Math.floor(asker.students.length / x);
-        let iGrupp = 0;
 
-        for (let i = 0; i < x; i++) {
-            groups.push([]);
-            groups[i].length = antal;
-            iGrupp += antal;
-        }
-        let raNum;
+        let groupIndex = 0;
+        while (noGroup.length > 0) {
+            const index = Math.floor(Math.random() * noGroup.length);
+            const student = noGroup.splice(index, 1)[0][0];
 
-        for (i = 0; i < x; i++) {
-            for (let y = 0; y < groups[i].length; y++) {
-                raNum = randFloor(noGroup.length);
-                groups[i][y] = noGroup[raNum][0];
-                noGroup.splice(raNum, 1);
-            }
-        }
-
-        if (noGroup.length > 0) {
-            let kvar = noGroup.length;
-
-            while (noGroup.length > 0) {
-                for (i = 0; i < kvar; i++) {
-                    raNum = randFloor(noGroup.length);
-                    groups[i].push(noGroup[raNum][0]);
-                    noGroup.splice(raNum, 1);
-                }
-            }
+            groups[groupIndex].push(student);
+            groupIndex = (groupIndex + 1) % x;
         }
 
         this.drawGroups(groups);
